@@ -104,6 +104,13 @@
             color: #000000;
             font-weight: 600;
             font-size: 1.125rem;
+            text-align: left;
+        }
+        .feature-text p {
+            text-align: left;
+        }
+        h2, h3 {
+            text-align: center;
         }
         footer {
             text-align: center;
@@ -112,7 +119,43 @@
             background-color: #f3f4f6;
             margin-top: 3rem;
         }
-    </style>
+</style>
+    <style>
+    @media (min-width: 768px) {
+        #about .about-flex {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        #about .about-text,
+        #about .about-image {
+            width: 50%;
+            max-width: none;
+        }
+    }
+</style>
+    <style>
+    @media (min-width: 900px) {
+        #about .about-flex {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        #about .about-text,
+        #about .about-image-wrapper {
+            width: 50%;
+        }
+        #about .about-image-wrapper {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #about .about-image {
+            max-width: 100%;
+        }
+    }
+</style>
+    <link rel="icon" href="theradocs.png" type="image/png">
 </head>
 <body>
     <header>
@@ -129,9 +172,8 @@
     </header>
 
     <section class="hero">
-        <h1>Automatisch dokumentieren, was wichtig ist.</h1>
-        <p>Transkription. Zusammenfassung. Verlaufsanalyse.<br>
-        Die digitale Assistenz für Ihre psychotherapeutische Praxis.</p>
+        <h1>Mühelose Dokumentation in der Praxis</h1>
+        <p>Erfassen und verwandeln Sie Ihre Therapiesitzungen in präzise, teilbare Dokumentation – automatisch und DSGVO-konform.</p>
         <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
     </section>
 
@@ -139,43 +181,71 @@
         <div class="feature-item">
             <img src="transcript.png" alt="Transkription Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>Transkription mit Sprechererkennung</h3>
-                <p>Theradocs analysiert Audioaufnahmen automatisch und trennt dabei klar zwischen Therapeut:in und Patient:in. Die einzelnen Sprecherbeiträge werden in einem strukturierten Transkript chronologisch und korrekt zugeordnet dokumentiert – bereit zur weiteren Verarbeitung.</p>
+                <h3>Dokumentation der Therapiesitzungen</h3>
+                <p>Keine Tipparbeit mehr: Theradocs erstellt automatisch strukturierte Sitzungsdokumentationen, die überprüfbar, exportierbar und revisionssicher archiviert werden können.</p>
             </div>
         </div>
         <div class="feature-item">
             <img src="summary.png" alt="Zusammenfassung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>KI-Zusammenfassungen & Schwerpunkte</h3>
-                <p>Wichtige Gesprächsinhalte, emotionale Wendepunkte und Therapieziele werden automatisch extrahiert und in verständlicher Form zusammengefasst. Das spart Zeit bei der Nachbereitung und hilft, den Verlauf besser einzuordnen.</p>
+                <h3>KI-gestützte Transkripte & Zusammenfassungen</h3>
+                <p>Von Therapiesitzungen, Telefonaten oder Diktaten: Theradocs erkennt Sprecherrollen, erstellt präzise Transkripte und extrahiert wichtige Gesprächsinhalte automatisch.</p>
             </div>
         </div>
         <div class="feature-item">
-            <img src="progress.png" alt="Verlaufsübersicht Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
+            <img src="progress.png" alt="Kodierung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>Verlaufsübersicht & Antragshilfe</h3>
-                <p>Theradocs generiert fortlaufende Verlaufsberichte für Ihre Dokumentation – automatisch und formatierbar. Relevante Inhalte können direkt für Anträge oder Folgeanträge übernommen werden. Unterstützt dabei, Therapieverläufe fundiert und effizient zu kommunizieren.</p>
+                <h3>Unterstützung bei Diagnose-Codierung</h3>
+                <p>Theradocs kann Vorschläge für relevante ICD-10-Codes zur besseren Übersicht und Dokumentation geben, soweit in Ihrer Praxis erforderlich. Die vorgeschlagenen Codes sind editierbar und können zur Ergänzung Ihrer Dokumentation verwendet werden.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="security.png" alt="Datenschutz Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
+            <div class="feature-text">
+                <h3>DSGVO-konform & sicher</h3>
+                <p>Theradocs verarbeitet alle Daten vollständig DSGVO-konform, ausschließlich auf Servern in Deutschland und mit Ende-zu-Ende-Verschlüsselung. Ihre Patientendaten bleiben jederzeit geschützt, werden vertraulich behandelt und können bei Bedarf vollständig gelöscht werden.</p>
             </div>
         </div>
     </section>
 
-    <section id="preise" class="pricing" style="max-width: 400px; margin: auto; text-align: center; padding: 4rem 1rem;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Faire & Einfache Preise</h2>
-        <p style="margin-bottom: 1rem;">Theradocs kostet 0,01€/Minute. Die ersten 100 Minuten sind kostenlos. Keine versteckten Gebühren.</p>
-        <p style="font-size: 2rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">0€</p>
-        <p style="margin-bottom: 1.5rem;">7 Tage kostenlos testen</p>
-        <a href="#" class="cta-button">Jetzt starten</a>
+    <section id="preise" class="pricing" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div class="preise-text" style="flex: 1 1 400px; min-width: 300px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Einfache & transparente Preise</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151; margin-bottom: 1rem;">
+                    Starte jetzt kostenlos mit 100 Minuten Testzeit – ohne Risiko, ohne Kreditkarte.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    Nach deiner kostenlosen Testphase kannst du Theradocs für 99 € pro Monat nutzen und bis zu 100 Stunden pro Monat transkribieren lassen.
+                </p>
+            </div>
+            <div class="preise-action" style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center;">
+                <p style="font-size: 2rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">0 € starten</p>
+                <p style="margin-bottom: 1.5rem;">Danach 99 € / Monat</p>
+                <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Jetzt kostenlos testen</a>
+            </div>
+        </div>
     </section>
 
 
-    <section id="about" style="max-width: 700px; margin: auto; padding: 4rem 1rem; text-align: left;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Über Theradocs</h2>
-        <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-            Theradocs unterstützt Therapeut:innen bei der effizienten Dokumentation von Therapiesitzungen. Automatische Transkription, KI-gestützte Zusammenfassungen und Verlaufsanalysen ermöglichen eine zeitsparende Nachbereitung und eine strukturierte Verlaufsdokumentation. So bleibt mehr Zeit für das Wesentliche: die Arbeit mit Ihren Patient:innen.
-        </p>
+    <section id="about" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
+        <div class="about-flex" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div class="about-text" style="flex: 1 1 400px; min-width: 300px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Lernen Sie Theradocs kennen</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    Theradocs unterstützt Therapeut:innen bei der effizienten Dokumentation von Therapiesitzungen. Automatische Transkription, KI-gestützte Zusammenfassungen und Verlaufsanalysen ermöglichen eine zeitsparende Nachbereitung und eine strukturierte Verlaufsdokumentation. So bleibt mehr Zeit für das Wesentliche: die Arbeit mit Ihren Patient:innen.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    Theradocs ist die nächste Generation der KI-gestützten Assistenz für Psychotherapeut:innen. Sicher, intuitiv und darauf ausgelegt, Ihnen mehr Zeit für die Arbeit mit Patient:innen zu geben – statt für Papierkram.
+                </p>
+            </div>
+            <div class="about-image-wrapper" style="flex: 1 1 400px; min-width: 300px; display: flex; justify-content: center;">
+                <img src="sample_transcript.png" alt="Beispiel Transkript und Zusammenfassung in Theradocs" style="width: 100%; max-width: 400px; border-radius: 0.5rem; height: auto;" />
+            </div>
+        </div>
     </section>
 
-    <section id="contact" style="max-width: 700px; margin: auto; padding: 4rem 1rem; text-align: left;">
+    <section id="contact" style="max-width: 700px; margin: auto; padding: 4rem 1rem; text-align: center;">
         <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Kontakt</h2>
         <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
             Theradocs ist ein Produkt der Sumora UG (haftungsbeschränkt)
