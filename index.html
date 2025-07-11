@@ -41,6 +41,32 @@
             text-decoration: none;
             font-weight: 600;
         }
+        @media (max-width: 600px) {
+            nav .cta-button {
+                display: none;
+            }
+        }
+        /* Responsive mobile-friendly header */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            nav a {
+                margin: 0.25rem 0;
+            }
+            .cta-button {
+                align-self: stretch;
+                text-align: center;
+            }
+        }
         .hero {
             display: flex;
             flex-direction: column;
