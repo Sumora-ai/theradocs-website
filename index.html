@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Theradocs – KI für Ihre Praxis</title>
+    <title>TheraDocs – KI für Ihre Praxis</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -41,6 +41,32 @@
             text-decoration: none;
             font-weight: 600;
         }
+        @media (max-width: 600px) {
+            nav .cta-button {
+                display: none;
+            }
+        }
+        /* Responsive mobile-friendly header */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            nav a {
+                margin: 0.25rem 0;
+            }
+            .cta-button {
+                align-self: stretch;
+                text-align: center;
+            }
+        }
         .hero {
             display: flex;
             flex-direction: column;
@@ -57,26 +83,34 @@
             max-width: 600px;
         }
         .features {
-            padding: 3rem 2rem;
-            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
             margin: auto;
+            padding: 4rem 1rem;
         }
         .feature-item {
-            margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
-        }
-        .feature-item img {
-            width: 24px;
-            height: 24px;
-            margin-right: 1rem;
-            margin-top: 0.2rem;
+            gap: 1rem;
+            text-align: left;
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
         }
         .feature-text h3 {
             margin-bottom: 0.5rem;
             color: #000000;
             font-weight: 600;
             font-size: 1.125rem;
+            text-align: left;
+        }
+        .feature-text p {
+            text-align: left;
+        }
+        h2, h3 {
+            text-align: center;
         }
         footer {
             text-align: center;
@@ -85,54 +119,159 @@
             background-color: #f3f4f6;
             margin-top: 3rem;
         }
-    </style>
+</style>
+    <style>
+    @media (min-width: 768px) {
+        #about .about-flex {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        #about .about-text,
+        #about .about-image {
+            width: 50%;
+            max-width: none;
+        }
+    }
+</style>
+    <style>
+    @media (min-width: 900px) {
+        #about .about-flex {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        #about .about-text,
+        #about .about-image-wrapper {
+            width: 50%;
+        }
+        #about .about-image-wrapper {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #about .about-image {
+            max-width: 100%;
+        }
+    }
+</style>
+    <link rel="icon" href="theradocs.png" type="image/png">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="Theradocs.png" alt="Theradocs Logo" />
-            <strong h2>Theradocs</strong>
+            <img src="theradocs.png" alt="TheraDocs Logo" />
+            <strong style="font-size: 1.5rem;">TheraDocs</strong>
         </div>
         <nav>
-            <a href="#">Über Theradocs</a>
-            <a href="#">Preise</a>
-            <a href="#">Kontakt</a>
-            <a href="#" class="cta-button">Testzugang anfragen</a>
+            <a href="#preise">Preise</a>
+            <a href="#about">Über TheraDocs</a>
+            <a href="#contact">Kontakt</a>
+            <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>KI, die zuhört.</h1>
-        <p>Transkription. Zusammenfassung. Verlaufsanalyse.<br/>Die digitale Assistenz für Ihre psychotherapeutische Praxis.</p>
-        <a class="cta-button" href="#">Probezugang anfragen</a>
+        <h1>Mühelose Dokumentation in der Praxis</h1>
+        <p>Erfassen und verwandeln Sie Ihre Therapiesitzungen in präzise, teilbare Dokumentation – automatisch und DSGVO-konform.</p>
+        <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
     </section>
 
     <section class="features">
         <div class="feature-item">
-            <img src="transcript.svg" alt="Transkript Icon" />
+            <img src="transcript.png" alt="Transkription Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>Transkription mit Sprechererkennung</h3>
-                <p>Erkennt automatisch Therapeut:in und Patient:in – klar getrennt und korrekt zugeordnet.</p>
+                <h3>Dokumentation der Therapiesitzungen</h3>
+                <p>Keine Tipparbeit mehr: TheraDocs erstellt automatisch strukturierte Sitzungsdokumentationen, die überprüfbar, exportierbar und revisionssicher archiviert werden können.</p>
             </div>
         </div>
         <div class="feature-item">
-            <img src="summary.svg" alt="Zusammenfassung Icon" />
+            <img src="summary.png" alt="Zusammenfassung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>KI-Zusammenfassungen & Schwerpunkte</h3>
-                <p>Fassen wichtige Inhalte, Themen und Entwicklungen verständlich zusammen.</p>
+                <h3>KI-gestützte Transkripte & Zusammenfassungen</h3>
+                <p>Von Therapiesitzungen, Telefonaten oder Diktaten: TheraDocs erkennt Sprecherrollen, erstellt präzise Transkripte und extrahiert wichtige Gesprächsinhalte automatisch.</p>
             </div>
         </div>
         <div class="feature-item">
-            <img src="progress.svg" alt="Verlauf Icon" />
+            <img src="progress.png" alt="Kodierung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
             <div class="feature-text">
-                <h3>Verlaufsübersicht & Antragshilfe</h3>
-                <p>Automatisieren Sie Anträge, Folgeanträge und dokumentieren Sie den Behandlungsschritt effizient.</p>
+                <h3>Unterstützung bei Diagnose-Codierung</h3>
+                <p>TheraDocs kann Vorschläge für relevante ICD-10-Codes zur besseren Übersicht und Dokumentation geben, soweit in Ihrer Praxis erforderlich. Die vorgeschlagenen Codes sind editierbar und können zur Ergänzung Ihrer Dokumentation verwendet werden.</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="security.png" alt="Datenschutz Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
+            <div class="feature-text">
+                <h3>DSGVO-konform & sicher</h3>
+                <p>TheraDocs verarbeitet alle Daten vollständig DSGVO-konform, ausschließlich auf Servern in Deutschland und mit Ende-zu-Ende-Verschlüsselung. Ihre Patientendaten bleiben jederzeit geschützt, werden vertraulich behandelt und können bei Bedarf vollständig gelöscht werden.</p>
             </div>
         </div>
     </section>
 
+    <section id="preise" class="pricing" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div class="preise-text" style="flex: 1 1 400px; min-width: 300px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Einfache & transparente Preise</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151; margin-bottom: 1rem;">
+                    Starte jetzt kostenlos mit 100 Minuten Testzeit – ohne Risiko, ohne Kreditkarte.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    Nach deiner kostenlosen Testphase kannst du TheraDocs für 99 € pro Monat nutzen und bis zu 100 Stunden pro Monat transkribieren lassen.
+                </p>
+            </div>
+            <div class="preise-action" style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center;">
+                <p style="font-size: 2rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">0 € starten</p>
+                <p style="margin-bottom: 1.5rem;">Danach 99 € / Monat</p>
+                <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Jetzt kostenlos testen</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
+        <div class="about-flex" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+            <div class="about-text" style="flex: 1 1 400px; min-width: 300px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Lernen Sie TheraDocs kennen</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    TheraDocs unterstützt Therapeut:innen bei der effizienten Dokumentation von Therapiesitzungen. Automatische Transkription, KI-gestützte Zusammenfassungen und Verlaufsanalysen ermöglichen eine zeitsparende Nachbereitung und eine strukturierte Verlaufsdokumentation. So bleibt mehr Zeit für das Wesentliche: die Arbeit mit Ihren Patient:innen.
+                </p>
+                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+                    TheraDocs ist die nächste Generation der KI-gestützten Assistenz für Psychotherapeut:innen. Sicher, intuitiv und darauf ausgelegt, Ihnen mehr Zeit für die Arbeit mit Patient:innen zu geben – statt für Papierkram.
+                </p>
+            </div>
+            <div class="about-image-wrapper" style="flex: 1 1 400px; min-width: 300px; display: flex; justify-content: center;">
+                <img src="sample_transcript.png" alt="Beispiel Transkript und Zusammenfassung in TheraDocs" style="width: 100%; max-width: 400px; border-radius: 0.5rem; height: auto;" />
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="max-width: 700px; margin: auto; padding: 4rem 1rem; text-align: center;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Kontakt</h2>
+        <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+            TheraDocs ist ein Produkt der Sumora UG (haftungsbeschränkt)
+        </p>
+        <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
+            E-Mail: <a href="mailto:info@theradocs.com" style="color: #2563eb; text-decoration: none;">info@theradocs.com</a>
+        </p>
+    </section>
+
     <footer>
-        © 2025 Theradocs · <a href="#">Datenschutz</a> · <a href="#">Impressum</a>
+    © 2025 TheraDocs · <a href="privacypolicy.html">Datenschutz</a> · <a href="imprint.html">Impressum</a>
     </footer>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1f2937; color: white; padding: 1rem; text-align: center; display: none; z-index: 1000;">
+        <p style="margin: 0; padding: 0 0 0.5rem 0;">Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Durch die Nutzung der Website stimmen Sie der Verwendung von Cookies zu.</p>
+        <button id="cookie-accept" style="background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer;">Akzeptieren</button>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!localStorage.getItem("cookiesAccepted")) {
+            document.getElementById("cookie-banner").style.display = "block";
+        }
+        document.getElementById("cookie-accept").addEventListener("click", function () {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookie-banner").style.display = "none";
+        });
+    });
+    </script>
 </body>
 </html>
