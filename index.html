@@ -137,20 +137,20 @@
         }
 
         .hero {
-            padding: 4.5rem 0 3.5rem;
+            padding: 4.5rem 0 2.25rem;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 620px) minmax(360px, 620px);
+            grid-template-columns: minmax(0, 560px) minmax(0, 640px);
             justify-content: space-between;
-            gap: clamp(2.5rem, 4vw, 4.5rem);
-            align-items: center;
+            gap: clamp(2.5rem, 4vw, 4.75rem);
+            align-items: start;
         }
 
         .hero-copy {
             width: 100%;
-            max-width: 660px;
+            max-width: 560px;
             min-width: 0;
         }
 
@@ -176,10 +176,10 @@
 
         .hero h1 {
             margin: 1.1rem 0 1rem;
-            font-size: clamp(2.35rem, 4.2vw, 3.85rem);
-            line-height: 1.02;
+            font-size: clamp(2.45rem, 4.25vw, 4rem);
+            line-height: 1;
             letter-spacing: -0.06em;
-            max-width: 14.5ch;
+            max-width: 14ch;
         }
 
         .hero-title-line {
@@ -192,7 +192,7 @@
 
         .hero p {
             margin: 0;
-            max-width: 620px;
+            max-width: 560px;
             font-size: 1.15rem;
             line-height: 1.75;
             color: var(--muted);
@@ -205,20 +205,21 @@
             margin-top: 2rem;
         }
 
-        .hero-highlights {
+        .hero-values {
+            padding: 0 0 3.2rem;
+        }
+
+        .hero-values-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 1rem;
-            margin-top: 2rem;
-            width: 100%;
-            max-width: 100%;
             align-items: stretch;
         }
 
         .highlight-card {
             height: 100%;
             min-height: 100%;
-            padding: 1rem 1.1rem;
+            padding: 1.05rem 1.1rem 1.15rem;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.72);
             border: 1px solid rgba(217, 226, 239, 0.95);
@@ -239,7 +240,7 @@
 
         .product-shell {
             width: 100%;
-            max-width: 640px;
+            max-width: 680px;
             padding: 0.75rem;
             border-radius: 32px;
             background: rgba(255, 255, 255, 0.88);
@@ -608,12 +609,16 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 580px) minmax(320px, 520px);
+                grid-template-columns: minmax(0, 520px) minmax(0, 560px);
                 gap: 2rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.2rem, 4vw, 3.35rem);
+                font-size: clamp(2.25rem, 4vw, 3.55rem);
+            }
+
+            .hero-values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .module-card--overview,
@@ -653,6 +658,7 @@
                 max-width: 640px;
             }
 
+            .hero-values-grid,
             .module-grid {
                 grid-template-columns: 1fr;
             }
@@ -701,7 +707,11 @@
                 align-items: stretch;
             }
 
-            .hero-highlights {
+            .hero-values {
+                padding-bottom: 2.8rem;
+            }
+
+            .hero-values-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -765,24 +775,6 @@
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
                         <a href="#produkt" class="secondary-button">In die Oberflaeche sehen</a>
                     </div>
-                    <div class="hero-highlights">
-                        <div class="highlight-card">
-                            <strong>Patienten- und Sitzungsverwaltung</strong>
-                            <span>Faelle, Termine und Dokumentation bleiben in einer zusammenhaengenden Struktur organisiert.</span>
-                        </div>
-                        <div class="highlight-card">
-                            <strong>Transkript mit Sprechertrennung</strong>
-                            <span>Beitraege von Therapeut:in und Patient:in werden getrennt und direkt nachvollziehbar dargestellt.</span>
-                        </div>
-                        <div class="highlight-card">
-                            <strong>Strukturierte Zusammenfassung</strong>
-                            <span>Wesentliche Inhalte der Sitzung liegen in einer kompakten klinischen Uebersicht vor.</span>
-                        </div>
-                        <div class="highlight-card">
-                            <strong>Editierbare Dokumentation</strong>
-                            <span>Ergebnisse koennen geprueft, ueberarbeitet und unmittelbar weiterverwendet werden.</span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="hero-media">
@@ -798,6 +790,29 @@
                         <div class="product-shot">
                             <img src="app_overview_dashboard.png" alt="Dashboard-Ansicht von TheraDocs mit Patientenliste und Sitzungsstatus" />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-values">
+            <div class="container">
+                <div class="hero-values-grid">
+                    <div class="highlight-card">
+                        <strong>Patienten- und Sitzungsverwaltung</strong>
+                        <span>Faelle, Termine und Dokumentation bleiben in einer zusammenhaengenden Struktur organisiert.</span>
+                    </div>
+                    <div class="highlight-card">
+                        <strong>Transkript mit Sprechertrennung</strong>
+                        <span>Beitraege von Therapeut:in und Patient:in werden getrennt und direkt nachvollziehbar dargestellt.</span>
+                    </div>
+                    <div class="highlight-card">
+                        <strong>Strukturierte Zusammenfassung</strong>
+                        <span>Wesentliche Inhalte der Sitzung liegen in einer kompakten klinischen Uebersicht vor.</span>
+                    </div>
+                    <div class="highlight-card">
+                        <strong>Editierbare Dokumentation</strong>
+                        <span>Ergebnisse koennen geprueft, ueberarbeitet und unmittelbar weiterverwendet werden.</span>
                     </div>
                 </div>
             </div>
