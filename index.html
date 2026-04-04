@@ -264,7 +264,23 @@
             overflow: hidden;
             border-radius: 24px;
             border: 1px solid #e5ecf5;
-            background: #ffffff;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-shot video,
+        .product-shot img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .product-shot video {
+            object-fit: contain;
+            background: #f8fbff;
         }
 
         .product-footnote {
@@ -679,14 +695,25 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
+                            <div class="product-label">Kurzes Demo aus der aktuellen Produktoberflaeche</div>
                         </div>
                         <div class="product-shot">
-                            <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
+                            <video
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                preload="auto"
+                                poster="sample_transcript.png"
+                                aria-label="Kurzes Demo-Video der TheraDocs-Ergebnisansicht"
+                            >
+                                <source src="short_demo_flow.mov" />
+                                <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
+                            </video>
                         </div>
                         <div class="product-footnote">
-                            <span>Transkript und Zusammenfassung stehen in derselben Ansicht bereit.</span>
-                            <span>Direkt pruefbar, editierbar und einer Sitzung zugeordnet.</span>
+                            <span>Das Demo zeigt direkt die Ergebnisansicht statt eines abstrakten Produktversprechens.</span>
+                            <span>Transkript, Zusammenfassung und Sitzungskontext sind unmittelbar sichtbar.</span>
                         </div>
                     </div>
                 </div>
