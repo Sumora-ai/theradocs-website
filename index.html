@@ -142,9 +142,9 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 620px) minmax(320px, 500px);
+            grid-template-columns: minmax(0, 560px) minmax(380px, 640px);
             justify-content: space-between;
-            gap: clamp(2.5rem, 5vw, 5rem);
+            gap: clamp(2.75rem, 5vw, 5.25rem);
             align-items: center;
         }
 
@@ -226,8 +226,8 @@
 
         .product-shell {
             width: 100%;
-            max-width: 500px;
-            padding: 1rem;
+            max-width: 640px;
+            padding: 0.75rem;
             border-radius: 32px;
             background: rgba(255, 255, 255, 0.88);
             border: 1px solid rgba(217, 226, 239, 0.95);
@@ -239,7 +239,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 1rem;
-            padding: 0.25rem 0.25rem 1rem;
+            padding: 0.1rem 0.1rem 0.65rem;
         }
 
         .window-dots {
@@ -262,7 +262,7 @@
 
         .product-shot {
             overflow: hidden;
-            border-radius: 24px;
+            border-radius: 26px;
             border: 1px solid #e5ecf5;
             background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
             aspect-ratio: 16 / 9;
@@ -284,12 +284,10 @@
         }
 
         .product-footnote {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1rem 0.2rem 0;
+            padding: 0.7rem 0.2rem 0;
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            line-height: 1.55;
         }
 
         .section {
@@ -539,8 +537,8 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 560px) minmax(300px, 440px);
-                gap: 2.5rem;
+                grid-template-columns: minmax(0, 520px) minmax(320px, 560px);
+                gap: 2.25rem;
             }
 
             .hero h1 {
@@ -623,10 +621,6 @@
                 max-width: 100%;
             }
 
-            .product-footnote {
-                flex-direction: column;
-            }
-
             .security-panel {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -701,7 +695,6 @@
                             <video
                                 autoplay
                                 muted
-                                loop
                                 playsinline
                                 preload="auto"
                                 poster="sample_transcript.png"
@@ -712,8 +705,7 @@
                             </video>
                         </div>
                         <div class="product-footnote">
-                            <span>Das Demo zeigt direkt die Ergebnisansicht statt eines abstrakten Produktversprechens.</span>
-                            <span>Transkript, Zusammenfassung und Sitzungskontext sind unmittelbar sichtbar.</span>
+                            Das Demo zeigt direkt die Ergebnisansicht von TheraDocs.
                         </div>
                     </div>
                 </div>
