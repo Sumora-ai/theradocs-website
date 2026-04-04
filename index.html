@@ -142,15 +142,15 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 560px) minmax(380px, 640px);
+            grid-template-columns: minmax(0, 620px) minmax(360px, 620px);
             justify-content: space-between;
-            gap: clamp(2.75rem, 5vw, 5.25rem);
+            gap: clamp(2.5rem, 4vw, 4.5rem);
             align-items: center;
         }
 
         .hero-copy {
             width: 100%;
-            max-width: 600px;
+            max-width: 660px;
             min-width: 0;
         }
 
@@ -176,9 +176,10 @@
 
         .hero h1 {
             margin: 1.1rem 0 1rem;
-            font-size: clamp(2.45rem, 4.6vw, 4rem);
-            line-height: 1.01;
+            font-size: clamp(2.35rem, 4.2vw, 3.85rem);
+            line-height: 1.02;
             letter-spacing: -0.06em;
+            max-width: 14.5ch;
         }
 
         .hero-title-line {
@@ -191,7 +192,7 @@
 
         .hero p {
             margin: 0;
-            max-width: 590px;
+            max-width: 620px;
             font-size: 1.15rem;
             line-height: 1.75;
             color: var(--muted);
@@ -210,12 +211,13 @@
             gap: 1rem;
             margin-top: 2rem;
             width: 100%;
-            max-width: 600px;
+            max-width: 100%;
             align-items: stretch;
         }
 
         .highlight-card {
             height: 100%;
+            min-height: 100%;
             padding: 1rem 1.1rem;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.72);
@@ -606,12 +608,12 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 540px) minmax(320px, 560px);
-                gap: 2.25rem;
+                grid-template-columns: minmax(0, 580px) minmax(320px, 520px);
+                gap: 2rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.3rem, 4.4vw, 3.55rem);
+                font-size: clamp(2.2rem, 4vw, 3.35rem);
             }
 
             .module-card--overview,
@@ -755,10 +757,8 @@
                 <div class="hero-copy">
                     <div class="eyebrow">TheraDocs fuer Psychotherapiepraxen</div>
                     <h1>
-                        <span class="hero-title-line">Dokumentation von</span>
-                        <span class="hero-title-line">Psychotherapiesitzungen</span>
-                        <span class="hero-title-line">automatisch strukturiert</span>
-                        <span class="hero-title-line">und direkt nutzbar</span>
+                        <span class="hero-title-line">Dokumentation von Psychotherapiesitzungen</span>
+                        <span class="hero-title-line">automatisch strukturiert und direkt nutzbar</span>
                     </h1>
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
                     <div class="hero-actions">
