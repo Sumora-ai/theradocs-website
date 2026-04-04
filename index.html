@@ -315,46 +315,53 @@
 
         .module-grid {
             display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: minmax(0, 1.22fr) minmax(340px, 0.88fr);
+            gap: 1.35rem;
             align-items: start;
         }
 
         .module-card {
-            padding: 1.35rem;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1rem 1.05rem;
             min-width: 0;
             overflow: hidden;
         }
 
-        .module-card--overview,
-        .module-card--timeline {
-            grid-column: span 7;
+        .module-card--overview {
+            grid-column: 1;
+            grid-row: span 2;
+            padding: 1.1rem 1.1rem 1.15rem;
         }
 
-        .module-card--transcript,
+        .module-card--transcript {
+            grid-column: 2;
+        }
+
         .module-card--summary {
-            grid-column: span 5;
+            grid-column: 2;
         }
 
-        .module-card--overview,
         .module-card--timeline {
-            padding: 1.5rem;
+            grid-column: 1 / -1;
+            padding: 1rem 1.1rem 1.05rem;
         }
 
         .module-meta {
-            margin-bottom: 1.1rem;
+            margin-bottom: 0.8rem;
         }
 
         .module-meta h3 {
-            margin: 0 0 0.45rem;
-            font-size: 1.2rem;
+            margin: 0 0 0.35rem;
+            font-size: 1.18rem;
             letter-spacing: -0.03em;
         }
 
         .module-meta p {
             margin: 0;
             color: var(--muted);
-            line-height: 1.65;
+            line-height: 1.55;
+            font-size: 0.98rem;
         }
 
         .module-screen {
@@ -364,7 +371,7 @@
             border-radius: 24px;
             border: 1px solid #dfe8f4;
             background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
-            padding: 0.75rem;
+            padding: 0.38rem;
             overflow: hidden;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
         }
@@ -373,7 +380,7 @@
             display: block;
             width: 100%;
             min-width: 0;
-            padding: 0.55rem;
+            padding: 0;
             line-height: 0;
         }
 
@@ -385,9 +392,22 @@
             position: static;
             transform: none;
             margin: 0;
-            border-radius: 18px;
-            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.10);
             background: #ffffff;
+        }
+
+        .module-card--overview .module-screen,
+        .module-card--timeline .module-screen {
+            padding: 0.32rem;
+        }
+
+        .module-card--overview .module-meta {
+            margin-bottom: 0.95rem;
+        }
+
+        .module-card--overview .module-meta p {
+            max-width: 46ch;
         }
 
         .module-card--overview .module-screen--image img,
@@ -634,11 +654,19 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
+            .module-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .module-card--overview,
-            .module-card--timeline,
+            .module-card--timeline {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
             .module-card--transcript,
             .module-card--summary {
-                grid-column: span 6;
+                grid-column: auto;
             }
         }
 
@@ -671,13 +699,20 @@
                 max-width: 640px;
             }
 
-            .hero-values-grid,
-            .module-grid {
+            .hero-values-grid {
                 grid-template-columns: 1fr;
             }
 
+            .module-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .module-card--overview,
-            .module-card--timeline,
+            .module-card--timeline {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
             .module-card--transcript,
             .module-card--summary {
                 grid-column: auto;
@@ -733,16 +768,26 @@
                 max-width: 100%;
             }
 
-            .module-card {
-                padding: 1.1rem;
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-card,
+            .module-card--overview,
+            .module-card--timeline {
+                padding: 1rem;
+            }
+
+            .module-card--overview,
+            .module-card--timeline,
+            .module-card--transcript,
+            .module-card--summary {
+                grid-column: auto;
+                grid-row: auto;
             }
 
             .module-screen {
-                padding: 0.65rem;
-            }
-
-            .module-screen--image {
-                padding: 0.45rem;
+                padding: 0.32rem;
             }
 
             .security-panel {
@@ -766,7 +811,7 @@
             </a>
             <nav>
                 <a href="#produkt">Produkt</a>
-                <a href="#verfuegbar">Bereits verfuegbar</a>
+                <a href="#verfuegbar">Bereits verfügbar</a>
                 <a href="#ablauf">So funktioniert es</a>
                 <a href="#contact">Kontakt</a>
                 <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
@@ -778,15 +823,15 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <div class="eyebrow">TheraDocs fuer Psychotherapiepraxen</div>
+                    <div class="eyebrow">TheraDocs für Psychotherapiepraxen</div>
                     <h1>
                         <span class="hero-title-line">Dokumentation von Psychotherapiesitzungen</span>
                         <span class="hero-title-line">automatisch strukturiert und direkt nutzbar</span>
                     </h1>
-                    <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
+                    <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, prüfbaren Oberfläche.</p>
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
-                        <a href="#produkt" class="secondary-button">In die Oberflaeche sehen</a>
+                        <a href="#produkt" class="secondary-button">In die Oberfläche sehen</a>
                     </div>
                 </div>
 
@@ -798,7 +843,7 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
+                            <div class="product-label">Aus der aktuellen Produktoberfläche</div>
                         </div>
                         <div class="product-shot">
                             <img src="app_overview_dashboard.png" alt="Dashboard-Ansicht von TheraDocs mit Patientenliste und Sitzungsstatus" />
@@ -813,19 +858,19 @@
                 <div class="hero-values-grid">
                     <div class="highlight-card">
                         <strong>Patienten- und Sitzungsverwaltung</strong>
-                        <span>Faelle, Termine und Dokumentation bleiben in einer zusammenhaengenden Struktur organisiert.</span>
+                        <span>Fälle, Termine und Dokumentation bleiben in einer zusammenhängenden Struktur organisiert.</span>
                     </div>
                     <div class="highlight-card">
                         <strong>Transkript mit Sprechertrennung</strong>
-                        <span>Beitraege von Therapeut:in und Patient:in werden getrennt und direkt nachvollziehbar dargestellt.</span>
+                        <span>Beiträge von Therapeut:in und Patient:in werden getrennt und direkt nachvollziehbar dargestellt.</span>
                     </div>
                     <div class="highlight-card">
                         <strong>Strukturierte Zusammenfassung</strong>
-                        <span>Wesentliche Inhalte der Sitzung liegen in einer kompakten klinischen Uebersicht vor.</span>
+                        <span>Wesentliche Inhalte der Sitzung liegen in einer kompakten klinischen Übersicht vor.</span>
                     </div>
                     <div class="highlight-card">
                         <strong>Editierbare Dokumentation</strong>
-                        <span>Ergebnisse koennen geprueft, ueberarbeitet und unmittelbar weiterverwendet werden.</span>
+                        <span>Ergebnisse können geprüft, überarbeitet und unmittelbar weiterverwendet werden.</span>
                     </div>
                 </div>
             </div>
@@ -834,7 +879,7 @@
         <section id="produkt" class="section">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow">Einblick in die Oberflaeche</div>
+                    <div class="eyebrow">Einblick in die Oberfläche</div>
                     <h2>So sieht TheraDocs im Einsatz aus.</h2>
                     <p>Die zentralen Produktmodule werden hier einzeln gezeigt. Dadurch bleibt erkennbar, welche Teile der Anwendung bereits vorhanden sind und wie die Ergebnisse konkret dargestellt werden.</p>
                 </div>
@@ -842,8 +887,8 @@
                 <div class="module-grid">
                     <article class="card module-card module-card--overview">
                         <div class="module-meta">
-                            <h3>Patienten- und Sitzungsuebersicht</h3>
-                            <p>Patienten, letzte Sitzungen und Status sind strukturiert in einer Oberflaeche organisiert.</p>
+                            <h3>Patienten- und Sitzungsübersicht</h3>
+                            <p>Patienten, letzte Sitzungen und Status sind strukturiert in einer Oberfläche organisiert.</p>
                         </div>
                         <div class="module-screen module-screen--image">
                             <img src="patientenliste.png" alt="Patientenliste in TheraDocs mit Sitzungen und Status" />
@@ -853,7 +898,7 @@
                     <article class="card module-card module-card--transcript">
                         <div class="module-meta">
                             <h3>Transkript mit Sprechertrennung</h3>
-                            <p>Gespraechsverlaeufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
+                            <p>Gesprächsverläufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
                         </div>
                         <div class="module-screen module-screen--image">
                             <img src="transcript.png" alt="Transkript in TheraDocs mit Sprechertrennung zwischen Therapeutin und Patientin" />
@@ -863,7 +908,7 @@
                     <article class="card module-card module-card--summary">
                         <div class="module-meta">
                             <h3>Strukturierte Zusammenfassung</h3>
-                            <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebuendelt.</p>
+                            <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebündelt.</p>
                         </div>
                         <div class="module-screen module-screen--image">
                             <img src="zusammenfassung.png" alt="Strukturierte Zusammenfassung in TheraDocs" />
@@ -886,43 +931,43 @@
         <section id="verfuegbar" class="section">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow">Bereits verfuegbar</div>
-                    <h2>Die wesentlichen Bausteine fuer die Sitzungsdokumentation sind bereits Teil des Produkts.</h2>
-                    <p>TheraDocs praesentiert sich hier bewusst als vorhandene Anwendung mit zusammenhaengender Struktur. Die folgenden Funktionen sind nicht als Konzept beschrieben, sondern als bereits abgebildete Bestandteile der Oberflaeche.</p>
+                    <div class="eyebrow">Bereits verfügbar</div>
+                    <h2>Die wesentlichen Bausteine für die Sitzungsdokumentation sind bereits Teil des Produkts.</h2>
+                    <p>TheraDocs präsentiert sich hier bewusst als vorhandene Anwendung mit zusammenhängender Struktur. Die folgenden Funktionen sind nicht als Konzept beschrieben, sondern als bereits abgebildete Bestandteile der Oberfläche.</p>
                 </div>
 
                 <div class="availability-layout">
                     <div class="availability-list">
                         <article class="availability-item">
                             <strong>Patienten- und Sitzungsverwaltung</strong>
-                            <p>Patient:innen, einzelne Sitzungen und zugehoerige Dokumentation sind sauber einer gemeinsamen Akte zugeordnet.</p>
+                            <p>Patient:innen, einzelne Sitzungen und zugehörige Dokumentation sind sauber einer gemeinsamen Akte zugeordnet.</p>
                         </article>
                         <article class="availability-item">
                             <strong>Transkript mit Sprechertrennung</strong>
-                            <p>Gesprächsbeitraege werden nach Rollen getrennt dargestellt und bleiben dadurch direkt nachvollziehbar.</p>
+                            <p>Gesprächsbeiträge werden nach Rollen getrennt dargestellt und bleiben dadurch direkt nachvollziehbar.</p>
                         </article>
                         <article class="availability-item">
                             <strong>Strukturierte klinische Zusammenfassung</strong>
-                            <p>Wesentliche Inhalte einer Sitzung werden in eine klare, lesbare Zusammenfassung ueberfuehrt.</p>
+                            <p>Wesentliche Inhalte einer Sitzung werden in eine klare, lesbare Zusammenfassung überführt.</p>
                         </article>
                         <article class="availability-item">
                             <strong>Chronologischer Sitzungsverlauf</strong>
-                            <p>Entwicklungen ueber mehrere Sitzungen hinweg koennen in einer geordneten Verlaufsperspektive abgebildet werden.</p>
+                            <p>Entwicklungen über mehrere Sitzungen hinweg können in einer geordneten Verlaufsperspektive abgebildet werden.</p>
                         </article>
                         <article class="availability-item">
                             <strong>Editierbare Dokumentation</strong>
-                            <p>Erstellte Inhalte bleiben nicht statisch, sondern koennen direkt geprueft, angepasst und weitergefuehrt werden.</p>
+                            <p>Erstellte Inhalte bleiben nicht statisch, sondern können direkt geprüft, angepasst und weitergeführt werden.</p>
                         </article>
                     </div>
 
                     <aside class="card availability-note">
                         <div>
                             <h3>Produktwirkung vor Marketingwirkung</h3>
-                            <p>Die Oberflaeche fuehrt bestehende Daten, Sitzungsergebnisse und Dokumentation an einer Stelle zusammen. Dadurch wirkt TheraDocs wie ein einsetzbares Produkt und nicht wie eine Vorschau auf spaetere Funktionen.</p>
+                            <p>Die Oberfläche führt bestehende Daten, Sitzungsergebnisse und Dokumentation an einer Stelle zusammen. Dadurch wirkt TheraDocs wie ein einsetzbares Produkt und nicht wie eine Vorschau auf spätere Funktionen.</p>
                             <p>Besonders wichtig ist die direkte Verbindung aus Sitzung, Transkript, Zusammenfassung und Verlauf innerhalb desselben Arbeitskontexts.</p>
                         </div>
                         <div class="mini-list" aria-label="Kernpunkte der Produktdarstellung">
-                            <span>Eine Sitzung oeffnen</span>
+                            <span>Eine Sitzung öffnen</span>
                             <span>Ergebnisse strukturiert anzeigen</span>
                             <span>Dokumentation weiterbearbeiten</span>
                         </div>
@@ -936,26 +981,26 @@
                 <div class="section-header">
                     <div class="eyebrow">So funktioniert es</div>
                     <h2>Der Ablauf bleibt einfach und realistisch.</h2>
-                    <p>TheraDocs zeigt keinen kuenstlich aufgeblasenen Prozess. Die Produktlogik ist klar: Sitzung oeffnen, Verarbeitung im Hintergrund, Ergebnisse direkt in der Oberflaeche pruefen.</p>
+                    <p>TheraDocs zeigt keinen künstlich aufgeblasenen Prozess. Die Produktlogik ist klar: Sitzung öffnen, Verarbeitung im Hintergrund, Ergebnisse direkt in der Oberfläche prüfen.</p>
                 </div>
 
                 <div class="card-grid steps-grid">
                     <article class="card step-card">
                         <div class="step-number">1</div>
-                        <h3>Sitzung auswaehlen</h3>
-                        <p>Eine vorhandene Sitzung wird geoeffnet oder einer Patient:innenakte zugeordnet. Damit ist der Fallkontext direkt gesetzt.</p>
+                        <h3>Sitzung auswählen</h3>
+                        <p>Eine vorhandene Sitzung wird geöffnet oder einer Patient:innenakte zugeordnet. Damit ist der Fallkontext direkt gesetzt.</p>
                     </article>
 
                     <article class="card step-card">
                         <div class="step-number">2</div>
-                        <h3>Analyse laeuft automatisch im Hintergrund</h3>
-                        <p>TheraDocs verarbeitet das Gespraech und erstellt Transkript, Sprechertrennung, Zusammenfassung und Verlaufsstruktur.</p>
+                        <h3>Analyse läuft automatisch im Hintergrund</h3>
+                        <p>TheraDocs verarbeitet das Gespräch und erstellt Transkript, Sprechertrennung, Zusammenfassung und Verlaufsstruktur.</p>
                     </article>
 
                     <article class="card step-card">
                         <div class="step-number">3</div>
                         <h3>Strukturierte Ergebnisse stehen direkt bereit</h3>
-                        <p>Die Dokumentation erscheint in der Oberflaeche und kann sofort geprueft, bearbeitet und weiterverwendet werden.</p>
+                        <p>Die Dokumentation erscheint in der Oberfläche und kann sofort geprüft, bearbeitet und weiterverwendet werden.</p>
                     </article>
                 </div>
             </div>
@@ -964,11 +1009,11 @@
         <section class="section">
             <div class="container">
                 <div class="card security-panel">
-                    <img src="security.png" alt="Icon fuer sensible Daten und sichere Verarbeitung" />
+                    <img src="security.png" alt="Icon für sensible Daten und sichere Verarbeitung" />
                     <div>
                         <div class="eyebrow">Sicherheit</div>
-                        <h2 style="margin: 0.9rem 0 0.7rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">Fuer sensible Daten ausgelegt</h2>
-                        <p style="margin: 0; color: var(--muted); line-height: 1.75;">TheraDocs verarbeitet vertrauliche Gespraechsdaten und ist auf sichere Verarbeitung und Zugriffskontrolle ausgelegt.</p>
+                        <h2 style="margin: 0.9rem 0 0.7rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">Für sensible Daten ausgelegt</h2>
+                        <p style="margin: 0; color: var(--muted); line-height: 1.75;">TheraDocs verarbeitet vertrauliche Gesprächsdaten und ist auf sichere Verarbeitung und Zugriffskontrolle ausgelegt.</p>
                     </div>
                 </div>
             </div>
@@ -979,9 +1024,9 @@
                 <div class="card contact-card">
                     <div class="eyebrow">Kontakt</div>
                     <h2 style="margin: 1rem 0 0.75rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">TheraDocs kennenlernen</h2>
-                    <p>TheraDocs ist ein Produkt der Sumora UG (haftungsbeschraenkt).</p>
+                    <p>TheraDocs ist ein Produkt der Sumora UG (haftungsbeschränkt).</p>
                     <p>E-Mail: <a href="mailto:info@theradocs.com" style="color: var(--accent-dark); text-decoration: none; font-weight: 700;">info@theradocs.com</a></p>
-                    <p style="color: var(--muted);">Wenn Sie einen Testzugang anfragen moechten, erreichen Sie uns direkt per E-Mail.</p>
+                    <p style="color: var(--muted);">Wenn Sie einen Testzugang anfragen möchten, erreichen Sie uns direkt per E-Mail.</p>
                 </div>
             </div>
         </section>
@@ -994,7 +1039,7 @@
     </footer>
 
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Hinweis zu Cookies">
-        <p>Diese Website verwendet Cookies, um die Nutzung der Seite zu ermoeglichen und zu verbessern. Mit der weiteren Nutzung stimmen Sie dem zu.</p>
+        <p>Diese Website verwendet Cookies, um die Nutzung der Seite zu ermöglichen und zu verbessern. Mit der weiteren Nutzung stimmen Sie dem zu.</p>
         <button id="cookie-accept" class="cookie-button" type="button">Akzeptieren</button>
     </div>
 
