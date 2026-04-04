@@ -322,6 +322,8 @@
 
         .module-card {
             padding: 1.35rem;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .module-card--overview,
@@ -356,6 +358,9 @@
         }
 
         .module-screen {
+            width: 100%;
+            min-width: 0;
+            position: relative;
             border-radius: 24px;
             border: 1px solid #dfe8f4;
             background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
@@ -365,13 +370,21 @@
         }
 
         .module-screen--image {
+            display: block;
+            width: 100%;
+            min-width: 0;
             padding: 0.55rem;
+            line-height: 0;
         }
 
         .module-screen--image img {
             width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
+            position: static;
+            transform: none;
+            margin: 0;
             border-radius: 18px;
             box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
             background: #ffffff;
