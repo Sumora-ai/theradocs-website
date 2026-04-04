@@ -142,9 +142,23 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
-            gap: 3rem;
+            grid-template-columns: minmax(0, 620px) minmax(320px, 500px);
+            justify-content: space-between;
+            gap: clamp(2.5rem, 5vw, 5rem);
             align-items: center;
+        }
+
+        .hero-copy {
+            width: 100%;
+            max-width: 620px;
+            min-width: 0;
+        }
+
+        .hero-media {
+            width: 100%;
+            min-width: 0;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .eyebrow {
@@ -162,15 +176,15 @@
 
         .hero h1 {
             margin: 1.1rem 0 1rem;
-            font-size: clamp(2.7rem, 6vw, 4.8rem);
-            line-height: 0.98;
+            font-size: clamp(2.55rem, 5vw, 4.2rem);
+            line-height: 1.02;
             letter-spacing: -0.06em;
-            max-width: 11.5ch;
+            max-width: 12ch;
         }
 
         .hero p {
             margin: 0;
-            max-width: 660px;
+            max-width: 620px;
             font-size: 1.15rem;
             line-height: 1.75;
             color: var(--muted);
@@ -211,6 +225,8 @@
         }
 
         .product-shell {
+            width: 100%;
+            max-width: 500px;
             padding: 1rem;
             border-radius: 32px;
             background: rgba(255, 255, 255, 0.88);
@@ -505,8 +521,18 @@
             cursor: pointer;
         }
 
+        @media (max-width: 1100px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 560px) minmax(300px, 440px);
+                gap: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.35rem, 4.6vw, 3.6rem);
+            }
+        }
+
         @media (max-width: 980px) {
-            .hero-grid,
             .availability-layout,
             .feature-grid,
             .steps-grid {
@@ -517,8 +543,22 @@
                 padding-top: 3.5rem;
             }
 
-            .hero h1 {
-                max-width: none;
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 2rem;
+                justify-content: stretch;
+            }
+
+            .hero-copy {
+                max-width: 640px;
+            }
+
+            .hero-media {
+                justify-content: flex-start;
+            }
+
+            .product-shell {
+                max-width: 640px;
             }
 
             .availability-list {
@@ -538,8 +578,33 @@
                 gap: 0.9rem 1.1rem;
             }
 
+            .hero {
+                padding: 3rem 0 2.8rem;
+            }
+
+            .hero h1 {
+                max-width: none;
+                font-size: clamp(2.1rem, 9vw, 2.9rem);
+                line-height: 1.05;
+            }
+
+            .hero p {
+                font-size: 1.02rem;
+                line-height: 1.68;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
             .hero-highlights {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-media,
+            .product-shell {
+                max-width: 100%;
             }
 
             .product-footnote {
@@ -578,7 +643,7 @@
     <main id="top">
         <section class="hero">
             <div class="container hero-grid">
-                <div>
+                <div class="hero-copy">
                     <div class="eyebrow">TheraDocs fuer Psychotherapiepraxen</div>
                     <h1>Dokumentation von Psychotherapiesitzungen - automatisch strukturiert und direkt nutzbar</h1>
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
@@ -606,21 +671,23 @@
                     </div>
                 </div>
 
-                <div class="product-shell">
-                    <div class="product-topbar">
-                        <div class="window-dots" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                <div class="hero-media">
+                    <div class="product-shell">
+                        <div class="product-topbar">
+                            <div class="window-dots" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
                         </div>
-                        <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
-                    </div>
-                    <div class="product-shot">
-                        <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
-                    </div>
-                    <div class="product-footnote">
-                        <span>Transkript und Zusammenfassung stehen in derselben Ansicht bereit.</span>
-                        <span>Direkt pruefbar, editierbar und einer Sitzung zugeordnet.</span>
+                        <div class="product-shot">
+                            <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
+                        </div>
+                        <div class="product-footnote">
+                            <span>Transkript und Zusammenfassung stehen in derselben Ansicht bereit.</span>
+                            <span>Direkt pruefbar, editierbar und einer Sitzung zugeordnet.</span>
+                        </div>
                     </div>
                 </div>
             </div>
