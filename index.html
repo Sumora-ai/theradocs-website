@@ -265,29 +265,15 @@
             border-radius: 26px;
             border: 1px solid #e5ecf5;
             background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
-            aspect-ratio: 16 / 9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 0.35rem;
         }
 
-        .product-shot video,
         .product-shot img {
             width: 100%;
-            height: 100%;
+            height: auto;
             display: block;
-        }
-
-        .product-shot video {
-            object-fit: contain;
-            background: #f8fbff;
-        }
-
-        .product-footnote {
-            padding: 0.7rem 0.2rem 0;
-            color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.55;
+            border-radius: 20px;
+            background: #ffffff;
         }
 
         .section {
@@ -311,6 +297,55 @@
             color: var(--muted);
             line-height: 1.75;
             font-size: 1.05rem;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .module-card {
+            padding: 1.35rem;
+        }
+
+        .module-meta {
+            margin-bottom: 1.1rem;
+        }
+
+        .module-meta h3 {
+            margin: 0 0 0.45rem;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+        }
+
+        .module-meta p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .module-screen {
+            border-radius: 24px;
+            border: 1px solid #dfe8f4;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+            padding: 0.75rem;
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+        }
+
+        .module-screen--image {
+            padding: 0.55rem;
+        }
+
+        .module-screen--image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+            background: #ffffff;
         }
 
         .card-grid {
@@ -547,6 +582,7 @@
         }
 
         @media (max-width: 980px) {
+            .module-grid,
             .availability-layout,
             .feature-grid,
             .steps-grid {
@@ -621,6 +657,18 @@
                 max-width: 100%;
             }
 
+            .module-card {
+                padding: 1.1rem;
+            }
+
+            .module-screen {
+                padding: 0.65rem;
+            }
+
+            .module-screen--image {
+                padding: 0.45rem;
+            }
+
             .security-panel {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -659,7 +707,7 @@
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
-                        <a href="#verfuegbar" class="secondary-button">Bereits verfuegbare Funktionen ansehen</a>
+                        <a href="#produkt" class="secondary-button">In die Oberflaeche sehen</a>
                     </div>
                     <div class="hero-highlights">
                         <div class="highlight-card">
@@ -689,23 +737,10 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div class="product-label">Kurzes Demo aus der aktuellen Produktoberflaeche</div>
+                            <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
                         </div>
                         <div class="product-shot">
-                            <video
-                                autoplay
-                                muted
-                                playsinline
-                                preload="auto"
-                                poster="sample_transcript.png"
-                                aria-label="Kurzes Demo-Video der TheraDocs-Ergebnisansicht"
-                            >
-                                <source src="short_demo_flow.mov" />
-                                <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
-                            </video>
-                        </div>
-                        <div class="product-footnote">
-                            Das Demo zeigt direkt die Ergebnisansicht von TheraDocs.
+                            <img src="app_overview_dashboard.png" alt="Dashboard-Ansicht von TheraDocs mit Patientenliste und Sitzungsstatus" />
                         </div>
                     </div>
                 </div>
@@ -715,42 +750,49 @@
         <section id="produkt" class="section">
             <div class="container">
                 <div class="section-header">
-                    <div class="eyebrow">Produktueberblick</div>
-                    <h2>Die Seite zeigt eine bestehende Arbeitsoberflaeche, keine lose Sammlung von Einzelversprechen.</h2>
-                    <p>Die Kernfunktionen von TheraDocs sind auf konkrete Dokumentationsarbeit ausgerichtet: Sitzung erfassen, Inhalte strukturieren, Verlauf nachvollziehen und Ergebnisse direkt in der Oberflaeche weiterbearbeiten.</p>
+                    <div class="eyebrow">Einblick in die Oberflaeche</div>
+                    <h2>So sieht TheraDocs im Einsatz aus.</h2>
+                    <p>Die zentralen Produktmodule werden hier einzeln gezeigt. Dadurch bleibt erkennbar, welche Teile der Anwendung bereits vorhanden sind und wie die Ergebnisse konkret dargestellt werden.</p>
                 </div>
 
-                <div class="card-grid feature-grid">
-                    <article class="card">
-                        <img class="card-icon" src="transcript.png" alt="Icon fuer strukturierte Sitzungsdokumentation" />
-                        <h3>Strukturierte Sitzungsdokumentation</h3>
-                        <p>Automatisch generierte Transkripte, Zusammenfassungen und Verlaufsstrukturen stehen direkt nach der Sitzung bereit. Die Inhalte bleiben nachvollziehbar und koennen anschliessend geprueft oder ergaenzt werden.</p>
-                        <div class="card-tags">
-                            <span>Transkript</span>
-                            <span>Zusammenfassung</span>
-                            <span>Verlauf</span>
+                <div class="module-grid">
+                    <article class="card module-card">
+                        <div class="module-meta">
+                            <h3>Patienten- und Sitzungsuebersicht</h3>
+                            <p>Patienten, letzte Sitzungen und Status sind strukturiert in einer Oberflaeche organisiert.</p>
+                        </div>
+                        <div class="module-screen module-screen--image">
+                            <img src="patientenliste.png" alt="Patientenliste in TheraDocs mit Sitzungen und Status" />
                         </div>
                     </article>
 
-                    <article class="card">
-                        <img class="card-icon" src="summary.png" alt="Icon fuer eine gemeinsame Produktansicht" />
-                        <h3>Alles in einer Ansicht</h3>
-                        <p>Transkript, Zusammenfassung und Verlauf sind in einer gemeinsamen Oberflaeche verfuegbar. Das reduziert Toolwechsel und macht Pruefung, Korrektur und Weiterarbeit deutlich direkter.</p>
-                        <div class="card-tags">
-                            <span>Eine Oberflaeche</span>
-                            <span>Pruefbar</span>
-                            <span>Editierbar</span>
+                    <article class="card module-card">
+                        <div class="module-meta">
+                            <h3>Transkript mit Sprechertrennung</h3>
+                            <p>Gespraechsverlaeufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
+                        </div>
+                        <div class="module-screen module-screen--image">
+                            <img src="transcript.png" alt="Transkript in TheraDocs mit Sprechertrennung zwischen Therapeutin und Patientin" />
                         </div>
                     </article>
 
-                    <article class="card">
-                        <img class="card-icon" src="progress.png" alt="Icon fuer reale Praxisablaeufe" />
-                        <h3>Fuer reale Praxisablaeufe entwickelt</h3>
-                        <p>Patient:innen, Sitzungen und Dokumentationen sind strukturiert organisiert und direkt zugaenglich. So bleibt der Verlauf eines Falls ueber einzelne Sitzungen hinweg konsistent auffindbar.</p>
-                        <div class="card-tags">
-                            <span>Patient:innen</span>
-                            <span>Sitzungen</span>
-                            <span>Dokumente</span>
+                    <article class="card module-card">
+                        <div class="module-meta">
+                            <h3>Strukturierte Zusammenfassung</h3>
+                            <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebuendelt.</p>
+                        </div>
+                        <div class="module-screen module-screen--image">
+                            <img src="zusammenfassung.png" alt="Strukturierte Zusammenfassung in TheraDocs" />
+                        </div>
+                    </article>
+
+                    <article class="card module-card">
+                        <div class="module-meta">
+                            <h3>Sitzungsverlauf</h3>
+                            <p>Wichtige Inhalte und therapeutische Schritte werden chronologisch festgehalten.</p>
+                        </div>
+                        <div class="module-screen module-screen--image">
+                            <img src="sitzungsverlauf.png" alt="Chronologischer Sitzungsverlauf in TheraDocs" />
                         </div>
                     </article>
                 </div>
