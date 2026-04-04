@@ -2,276 +2,804 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TheraDocs – KI für Ihre Praxis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheraDocs - Dokumentation von Psychotherapiesitzungen</title>
+    <link rel="icon" href="theradocs.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <style>
+        :root {
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef4ff;
+            --line: #d9e2ef;
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --shadow: 0 24px 60px rgba(15, 23, 42, 0.10);
+            --radius: 28px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1f2937;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32%),
+                linear-gradient(180deg, #f8fbff 0%, #f4f7fb 48%, #eef2f8 100%);
         }
-        header {
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+            background: rgba(248, 251, 255, 0.88);
+            border-bottom: 1px solid rgba(217, 226, 239, 0.85);
+        }
+
+        .header-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #e5e7eb;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1rem 0;
         }
+
         .logo {
             display: flex;
             align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
         }
+
         .logo img {
-            height: 32px;
-            margin-right: 0.75rem;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
         }
-        nav a {
-            margin-left: 1rem;
-            text-decoration: none;
-            color: #1f2937;
-            font-weight: 500;
+
+        .logo strong {
+            font-size: 1.25rem;
+            letter-spacing: -0.03em;
         }
-        .cta-button {
-            background-color: #2563eb;
-            color: white;
-            padding: 0.6rem 1.25rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        @media (max-width: 600px) {
-            nav .cta-button {
-                display: none;
-            }
-        }
-        /* Responsive mobile-friendly header */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            nav {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                margin-top: 1rem;
-            }
-            nav a {
-                margin: 0.25rem 0;
-            }
-            .cta-button {
-                align-self: stretch;
-                text-align: center;
-            }
-        }
-        .hero {
+
+        nav {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: auto;
-            padding: 4rem 1rem;
-        }
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            text-align: left;
-            background: #f9fafb;
-            padding: 1rem;
-            border-radius: 0.5rem;
-        }
-        .feature-text h3 {
-            margin-bottom: 0.5rem;
-            color: #000000;
-            font-weight: 600;
-            font-size: 1.125rem;
-            text-align: left;
-        }
-        .feature-text p {
-            text-align: left;
-        }
-        h2, h3 {
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9rem;
-            padding: 2rem 1rem;
-            background-color: #f3f4f6;
-            margin-top: 3rem;
-        }
-</style>
-    <style>
-    @media (min-width: 768px) {
-        #about .about-flex {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-        #about .about-text,
-        #about .about-image {
-            width: 50%;
-            max-width: none;
-        }
-    }
-</style>
-    <style>
-    @media (min-width: 900px) {
-        #about .about-flex {
-            flex-direction: row;
-            align-items: flex-start;
-        }
-        #about .about-text,
-        #about .about-image-wrapper {
-            width: 50%;
-        }
-        #about .about-image-wrapper {
-            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
             justify-content: flex-end;
         }
-        #about .about-image {
-            max-width: 100%;
+
+        nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
         }
-    }
-</style>
-    <link rel="icon" href="theradocs.png" type="image/png">
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        .cta-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 0.9rem 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: #ffffff;
+            box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24);
+        }
+
+        .secondary-button {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--line);
+        }
+
+        .cta-button:hover,
+        .secondary-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            padding: 4.5rem 0 3.5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            color: var(--accent-dark);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 {
+            margin: 1.1rem 0 1rem;
+            font-size: clamp(2.7rem, 6vw, 4.8rem);
+            line-height: 0.98;
+            letter-spacing: -0.06em;
+            max-width: 11.5ch;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 660px;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            padding: 1rem 1.1rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(217, 226, 239, 0.95);
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
+        }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.98rem;
+        }
+
+        .highlight-card span {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .product-shell {
+            padding: 1rem;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(217, 226, 239, 0.95);
+            box-shadow: var(--shadow);
+        }
+
+        .product-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.25rem 0.25rem 1rem;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .window-dots span {
+            width: 0.72rem;
+            height: 0.72rem;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .product-label {
+            font-size: 0.92rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .product-shot {
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid #e5ecf5;
+            background: #ffffff;
+        }
+
+        .product-footnote {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 0.2rem 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 1.25rem 0 4.5rem;
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            margin: 0.85rem 0 0.8rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+        }
+
+        .section-header p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 1.4rem;
+        }
+
+        .feature-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .card {
+            padding: 1.6rem;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(217, 226, 239, 0.98);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+        }
+
+        .card-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            box-shadow: 0 12px 20px rgba(37, 99, 235, 0.12);
+        }
+
+        .card h3 {
+            margin: 0 0 0.7rem;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .card-tags span {
+            border-radius: 999px;
+            padding: 0.42rem 0.7rem;
+            background: var(--surface-soft);
+            color: var(--accent-dark);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .availability-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+            gap: 1.4rem;
+            align-items: stretch;
+        }
+
+        .availability-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .availability-item {
+            padding: 1.3rem;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(217, 226, 239, 0.95);
+        }
+
+        .availability-item strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .availability-item p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 0.96rem;
+        }
+
+        .availability-note {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 244, 255, 0.98) 100%);
+        }
+
+        .availability-note p + p {
+            margin-top: 1rem;
+        }
+
+        .availability-note .mini-list {
+            display: grid;
+            gap: 0.65rem;
+            margin-top: 1.2rem;
+        }
+
+        .mini-list span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .mini-list span::before {
+            content: "";
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12);
+        }
+
+        .steps-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .step-card {
+            position: relative;
+            padding-top: 4.2rem;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.4rem;
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--accent);
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .security-panel {
+            display: grid;
+            grid-template-columns: 92px minmax(0, 1fr);
+            gap: 1.3rem;
+            align-items: center;
+            padding: 1.7rem;
+        }
+
+        .security-panel img {
+            width: 92px;
+            height: 92px;
+            border-radius: 22px;
+            box-shadow: 0 16px 30px rgba(37, 99, 235, 0.14);
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2.2rem 1.4rem;
+        }
+
+        .contact-card p {
+            margin: 0.45rem 0;
+        }
+
+        footer {
+            padding: 0 0 2.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        .cookie-banner {
+            position: fixed;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 40;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 1.1rem;
+            border-radius: 22px;
+            background: rgba(15, 23, 42, 0.94);
+            color: #ffffff;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.3);
+        }
+
+        .cookie-banner.show {
+            display: flex;
+        }
+
+        .cookie-banner p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .cookie-button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.8rem 1rem;
+            font: inherit;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            cursor: pointer;
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid,
+            .availability-layout,
+            .feature-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 3.5rem;
+            }
+
+            .hero h1 {
+                max-width: none;
+            }
+
+            .availability-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 0.9rem 1.1rem;
+            }
+
+            .hero-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .product-footnote {
+                flex-direction: column;
+            }
+
+            .security-panel {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="theradocs.png" alt="TheraDocs Logo" />
-            <strong style="font-size: 1.5rem;">TheraDocs</strong>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#top">
+                <img src="theradocs.png" alt="TheraDocs Logo" />
+                <strong>TheraDocs</strong>
+            </a>
+            <nav>
+                <a href="#produkt">Produkt</a>
+                <a href="#verfuegbar">Bereits verfuegbar</a>
+                <a href="#ablauf">So funktioniert es</a>
+                <a href="#contact">Kontakt</a>
+                <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
+            </nav>
         </div>
-        <nav>
-            <a href="#preise">Preise</a>
-            <a href="#about">Über TheraDocs</a>
-            <a href="#contact">Kontakt</a>
-            <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
-        </nav>
     </header>
 
-    <section class="hero">
-        <h1>Mühelose Dokumentation in der Praxis</h1>
-        <p>Erfassen und verwandeln Sie Ihre Therapiesitzungen in präzise, teilbare Dokumentation – automatisch und DSGVO-konform.</p>
-        <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
-    </section>
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">TheraDocs fuer Psychotherapiepraxen</div>
+                    <h1>Dokumentation von Psychotherapiesitzungen - automatisch strukturiert und direkt nutzbar</h1>
+                    <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
+                    <div class="hero-actions">
+                        <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
+                        <a href="#verfuegbar" class="secondary-button">Bereits verfuegbare Funktionen ansehen</a>
+                    </div>
+                    <div class="hero-highlights">
+                        <div class="highlight-card">
+                            <strong>Patienten- und Sitzungsverwaltung</strong>
+                            <span>Faelle, Termine und Dokumentation bleiben in einer zusammenhaengenden Struktur organisiert.</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Transkript mit Sprechertrennung</strong>
+                            <span>Beitraege von Therapeut:in und Patient:in werden getrennt und direkt nachvollziehbar dargestellt.</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Strukturierte Zusammenfassung</strong>
+                            <span>Wesentliche Inhalte der Sitzung liegen in einer kompakten klinischen Uebersicht vor.</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Editierbare Dokumentation</strong>
+                            <span>Ergebnisse koennen geprueft, ueberarbeitet und unmittelbar weiterverwendet werden.</span>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="features">
-        <div class="feature-item">
-            <img src="transcript.png" alt="Transkription Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
-            <div class="feature-text">
-                <h3>Dokumentation der Therapiesitzungen</h3>
-                <p>Keine Tipparbeit mehr: TheraDocs erstellt automatisch strukturierte Sitzungsdokumentationen, die überprüfbar, exportierbar und revisionssicher archiviert werden können.</p>
+                <div class="product-shell">
+                    <div class="product-topbar">
+                        <div class="window-dots" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="product-label">Aus der aktuellen Produktoberflaeche</div>
+                    </div>
+                    <div class="product-shot">
+                        <img src="sample_transcript.png" alt="Produktansicht von TheraDocs mit Transkript, Sprechertrennung und Zusammenfassung" />
+                    </div>
+                    <div class="product-footnote">
+                        <span>Transkript und Zusammenfassung stehen in derselben Ansicht bereit.</span>
+                        <span>Direkt pruefbar, editierbar und einer Sitzung zugeordnet.</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="feature-item">
-            <img src="summary.png" alt="Zusammenfassung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
-            <div class="feature-text">
-                <h3>KI-gestützte Transkripte & Zusammenfassungen</h3>
-                <p>Von Therapiesitzungen, Telefonaten oder Diktaten: TheraDocs erkennt Sprecherrollen, erstellt präzise Transkripte und extrahiert wichtige Gesprächsinhalte automatisch.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <img src="progress.png" alt="Kodierung Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
-            <div class="feature-text">
-                <h3>Unterstützung bei Diagnose-Codierung</h3>
-                <p>TheraDocs kann Vorschläge für relevante ICD-10-Codes zur besseren Übersicht und Dokumentation geben, soweit in Ihrer Praxis erforderlich. Die vorgeschlagenen Codes sind editierbar und können zur Ergänzung Ihrer Dokumentation verwendet werden.</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <img src="security.png" alt="Datenschutz Icon" style="width: 40px; height: 40px; flex-shrink: 0;" />
-            <div class="feature-text">
-                <h3>DSGVO-konform & sicher</h3>
-                <p>TheraDocs verarbeitet alle Daten vollständig DSGVO-konform, ausschließlich auf Servern in Deutschland und mit Ende-zu-Ende-Verschlüsselung. Ihre Patientendaten bleiben jederzeit geschützt, werden vertraulich behandelt und können bei Bedarf vollständig gelöscht werden.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="preise" class="pricing" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
-            <div class="preise-text" style="flex: 1 1 400px; min-width: 300px;">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Einfache & transparente Preise</h2>
-                <p style="font-size: 1rem; line-height: 1.6; color: #374151; margin-bottom: 1rem;">
-                    Starte jetzt kostenlos mit 100 Minuten Testzeit – ohne Risiko, ohne Kreditkarte.
-                </p>
-                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-                    Nach deiner kostenlosen Testphase kannst du TheraDocs für 99 € pro Monat nutzen und bis zu 100 Stunden pro Monat transkribieren lassen.
-                </p>
-            </div>
-            <div class="preise-action" style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center;">
-                <p style="font-size: 2rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">0 € starten</p>
-                <p style="margin-bottom: 1.5rem;">Danach 99 € / Monat</p>
-                <a href="mailto:info@theradocs.de?subject=Testzugang%20anfragen" class="cta-button">Jetzt kostenlos testen</a>
-            </div>
-        </div>
-    </section>
+        <section id="produkt" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">Produktueberblick</div>
+                    <h2>Die Seite zeigt eine bestehende Arbeitsoberflaeche, keine lose Sammlung von Einzelversprechen.</h2>
+                    <p>Die Kernfunktionen von TheraDocs sind auf konkrete Dokumentationsarbeit ausgerichtet: Sitzung erfassen, Inhalte strukturieren, Verlauf nachvollziehen und Ergebnisse direkt in der Oberflaeche weiterbearbeiten.</p>
+                </div>
 
+                <div class="card-grid feature-grid">
+                    <article class="card">
+                        <img class="card-icon" src="transcript.png" alt="Icon fuer strukturierte Sitzungsdokumentation" />
+                        <h3>Strukturierte Sitzungsdokumentation</h3>
+                        <p>Automatisch generierte Transkripte, Zusammenfassungen und Verlaufsstrukturen stehen direkt nach der Sitzung bereit. Die Inhalte bleiben nachvollziehbar und koennen anschliessend geprueft oder ergaenzt werden.</p>
+                        <div class="card-tags">
+                            <span>Transkript</span>
+                            <span>Zusammenfassung</span>
+                            <span>Verlauf</span>
+                        </div>
+                    </article>
 
-    <section id="about" style="max-width: 1000px; margin: auto; padding: 4rem 1rem;">
-        <div class="about-flex" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
-            <div class="about-text" style="flex: 1 1 400px; min-width: 300px;">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Lernen Sie TheraDocs kennen</h2>
-                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-                    TheraDocs unterstützt Therapeut:innen bei der effizienten Dokumentation von Therapiesitzungen. Automatische Transkription, KI-gestützte Zusammenfassungen und Verlaufsanalysen ermöglichen eine zeitsparende Nachbereitung und eine strukturierte Verlaufsdokumentation. So bleibt mehr Zeit für das Wesentliche: die Arbeit mit Ihren Patient:innen.
-                </p>
-                <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-                    TheraDocs ist die nächste Generation der KI-gestützten Assistenz für Psychotherapeut:innen. Sicher, intuitiv und darauf ausgelegt, Ihnen mehr Zeit für die Arbeit mit Patient:innen zu geben – statt für Papierkram.
-                </p>
-            </div>
-            <div class="about-image-wrapper" style="flex: 1 1 400px; min-width: 300px; display: flex; justify-content: center;">
-                <img src="sample_transcript.png" alt="Beispiel Transkript und Zusammenfassung in TheraDocs" style="width: 100%; max-width: 400px; border-radius: 0.5rem; height: auto;" />
-            </div>
-        </div>
-    </section>
+                    <article class="card">
+                        <img class="card-icon" src="summary.png" alt="Icon fuer eine gemeinsame Produktansicht" />
+                        <h3>Alles in einer Ansicht</h3>
+                        <p>Transkript, Zusammenfassung und Verlauf sind in einer gemeinsamen Oberflaeche verfuegbar. Das reduziert Toolwechsel und macht Pruefung, Korrektur und Weiterarbeit deutlich direkter.</p>
+                        <div class="card-tags">
+                            <span>Eine Oberflaeche</span>
+                            <span>Pruefbar</span>
+                            <span>Editierbar</span>
+                        </div>
+                    </article>
 
-    <section id="contact" style="max-width: 700px; margin: auto; padding: 4rem 1rem; text-align: center;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #000000;">Kontakt</h2>
-        <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-            TheraDocs ist ein Produkt der Sumora UG (haftungsbeschränkt)
-        </p>
-        <p style="font-size: 1rem; line-height: 1.6; color: #374151;">
-            E-Mail: <a href="mailto:info@theradocs.com" style="color: #2563eb; text-decoration: none;">info@theradocs.com</a>
-        </p>
-    </section>
+                    <article class="card">
+                        <img class="card-icon" src="progress.png" alt="Icon fuer reale Praxisablaeufe" />
+                        <h3>Fuer reale Praxisablaeufe entwickelt</h3>
+                        <p>Patient:innen, Sitzungen und Dokumentationen sind strukturiert organisiert und direkt zugaenglich. So bleibt der Verlauf eines Falls ueber einzelne Sitzungen hinweg konsistent auffindbar.</p>
+                        <div class="card-tags">
+                            <span>Patient:innen</span>
+                            <span>Sitzungen</span>
+                            <span>Dokumente</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="verfuegbar" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">Bereits verfuegbar</div>
+                    <h2>Die wesentlichen Bausteine fuer die Sitzungsdokumentation sind bereits Teil des Produkts.</h2>
+                    <p>TheraDocs praesentiert sich hier bewusst als vorhandene Anwendung mit zusammenhaengender Struktur. Die folgenden Funktionen sind nicht als Konzept beschrieben, sondern als bereits abgebildete Bestandteile der Oberflaeche.</p>
+                </div>
+
+                <div class="availability-layout">
+                    <div class="availability-list">
+                        <article class="availability-item">
+                            <strong>Patienten- und Sitzungsverwaltung</strong>
+                            <p>Patient:innen, einzelne Sitzungen und zugehoerige Dokumentation sind sauber einer gemeinsamen Akte zugeordnet.</p>
+                        </article>
+                        <article class="availability-item">
+                            <strong>Transkript mit Sprechertrennung</strong>
+                            <p>Gesprächsbeitraege werden nach Rollen getrennt dargestellt und bleiben dadurch direkt nachvollziehbar.</p>
+                        </article>
+                        <article class="availability-item">
+                            <strong>Strukturierte klinische Zusammenfassung</strong>
+                            <p>Wesentliche Inhalte einer Sitzung werden in eine klare, lesbare Zusammenfassung ueberfuehrt.</p>
+                        </article>
+                        <article class="availability-item">
+                            <strong>Chronologischer Sitzungsverlauf</strong>
+                            <p>Entwicklungen ueber mehrere Sitzungen hinweg koennen in einer geordneten Verlaufsperspektive abgebildet werden.</p>
+                        </article>
+                        <article class="availability-item">
+                            <strong>Editierbare Dokumentation</strong>
+                            <p>Erstellte Inhalte bleiben nicht statisch, sondern koennen direkt geprueft, angepasst und weitergefuehrt werden.</p>
+                        </article>
+                    </div>
+
+                    <aside class="card availability-note">
+                        <div>
+                            <h3>Produktwirkung vor Marketingwirkung</h3>
+                            <p>Die Oberflaeche fuehrt bestehende Daten, Sitzungsergebnisse und Dokumentation an einer Stelle zusammen. Dadurch wirkt TheraDocs wie ein einsetzbares Produkt und nicht wie eine Vorschau auf spaetere Funktionen.</p>
+                            <p>Besonders wichtig ist die direkte Verbindung aus Sitzung, Transkript, Zusammenfassung und Verlauf innerhalb desselben Arbeitskontexts.</p>
+                        </div>
+                        <div class="mini-list" aria-label="Kernpunkte der Produktdarstellung">
+                            <span>Eine Sitzung oeffnen</span>
+                            <span>Ergebnisse strukturiert anzeigen</span>
+                            <span>Dokumentation weiterbearbeiten</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="ablauf" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">So funktioniert es</div>
+                    <h2>Der Ablauf bleibt einfach und realistisch.</h2>
+                    <p>TheraDocs zeigt keinen kuenstlich aufgeblasenen Prozess. Die Produktlogik ist klar: Sitzung oeffnen, Verarbeitung im Hintergrund, Ergebnisse direkt in der Oberflaeche pruefen.</p>
+                </div>
+
+                <div class="card-grid steps-grid">
+                    <article class="card step-card">
+                        <div class="step-number">1</div>
+                        <h3>Sitzung auswaehlen</h3>
+                        <p>Eine vorhandene Sitzung wird geoeffnet oder einer Patient:innenakte zugeordnet. Damit ist der Fallkontext direkt gesetzt.</p>
+                    </article>
+
+                    <article class="card step-card">
+                        <div class="step-number">2</div>
+                        <h3>Analyse laeuft automatisch im Hintergrund</h3>
+                        <p>TheraDocs verarbeitet das Gespraech und erstellt Transkript, Sprechertrennung, Zusammenfassung und Verlaufsstruktur.</p>
+                    </article>
+
+                    <article class="card step-card">
+                        <div class="step-number">3</div>
+                        <h3>Strukturierte Ergebnisse stehen direkt bereit</h3>
+                        <p>Die Dokumentation erscheint in der Oberflaeche und kann sofort geprueft, bearbeitet und weiterverwendet werden.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card security-panel">
+                    <img src="security.png" alt="Icon fuer sensible Daten und sichere Verarbeitung" />
+                    <div>
+                        <div class="eyebrow">Sicherheit</div>
+                        <h2 style="margin: 0.9rem 0 0.7rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">Fuer sensible Daten ausgelegt</h2>
+                        <p style="margin: 0; color: var(--muted); line-height: 1.75;">TheraDocs verarbeitet vertrauliche Gespraechsdaten und ist auf sichere Verarbeitung und Zugriffskontrolle ausgelegt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="card contact-card">
+                    <div class="eyebrow">Kontakt</div>
+                    <h2 style="margin: 1rem 0 0.75rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">TheraDocs kennenlernen</h2>
+                    <p>TheraDocs ist ein Produkt der Sumora UG (haftungsbeschraenkt).</p>
+                    <p>E-Mail: <a href="mailto:info@theradocs.com" style="color: var(--accent-dark); text-decoration: none; font-weight: 700;">info@theradocs.com</a></p>
+                    <p style="color: var(--muted);">Wenn Sie einen Testzugang anfragen moechten, erreichen Sie uns direkt per E-Mail.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-    © 2025 TheraDocs · <a href="privacypolicy.html">Datenschutz</a> · <a href="imprint.html">Impressum</a>
+        <div class="container">
+            © 2026 TheraDocs · <a href="privacypolicy.html">Datenschutz</a> · <a href="imprint.html">Impressum</a>
+        </div>
     </footer>
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1f2937; color: white; padding: 1rem; text-align: center; display: none; z-index: 1000;">
-        <p style="margin: 0; padding: 0 0 0.5rem 0;">Diese Website verwendet Cookies, um die Benutzererfahrung zu verbessern. Durch die Nutzung der Website stimmen Sie der Verwendung von Cookies zu.</p>
-        <button id="cookie-accept" style="background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer;">Akzeptieren</button>
+
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Hinweis zu Cookies">
+        <p>Diese Website verwendet Cookies, um die Nutzung der Seite zu ermoeglichen und zu verbessern. Mit der weiteren Nutzung stimmen Sie dem zu.</p>
+        <button id="cookie-accept" class="cookie-button" type="button">Akzeptieren</button>
     </div>
+
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!localStorage.getItem("cookiesAccepted")) {
-            document.getElementById("cookie-banner").style.display = "block";
-        }
-        document.getElementById("cookie-accept").addEventListener("click", function () {
-            localStorage.setItem("cookiesAccepted", "true");
-            document.getElementById("cookie-banner").style.display = "none";
+        document.addEventListener("DOMContentLoaded", function () {
+            var banner = document.getElementById("cookie-banner");
+            var acceptButton = document.getElementById("cookie-accept");
+
+            if (!localStorage.getItem("cookiesAccepted")) {
+                banner.classList.add("show");
+            }
+
+            acceptButton.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true");
+                banner.classList.remove("show");
+            });
         });
-    });
     </script>
 </body>
 </html>
