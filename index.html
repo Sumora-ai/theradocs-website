@@ -150,7 +150,7 @@
 
         .hero-copy {
             width: 100%;
-            max-width: 620px;
+            max-width: 600px;
             min-width: 0;
         }
 
@@ -176,15 +176,22 @@
 
         .hero h1 {
             margin: 1.1rem 0 1rem;
-            font-size: clamp(2.55rem, 5vw, 4.2rem);
-            line-height: 1.02;
+            font-size: clamp(2.45rem, 4.6vw, 4rem);
+            line-height: 1.01;
             letter-spacing: -0.06em;
-            max-width: 12ch;
+        }
+
+        .hero-title-line {
+            display: block;
+        }
+
+        .hero-title-line + .hero-title-line {
+            margin-top: 0.08em;
         }
 
         .hero p {
             margin: 0;
-            max-width: 620px;
+            max-width: 590px;
             font-size: 1.15rem;
             line-height: 1.75;
             color: var(--muted);
@@ -200,11 +207,15 @@
         .hero-highlights {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.9rem;
+            gap: 1rem;
             margin-top: 2rem;
+            width: 100%;
+            max-width: 600px;
+            align-items: stretch;
         }
 
         .highlight-card {
+            height: 100%;
             padding: 1rem 1.1rem;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.72);
@@ -301,13 +312,28 @@
 
         .module-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(12, minmax(0, 1fr));
             gap: 1.5rem;
             align-items: start;
         }
 
         .module-card {
             padding: 1.35rem;
+        }
+
+        .module-card--overview,
+        .module-card--timeline {
+            grid-column: span 7;
+        }
+
+        .module-card--transcript,
+        .module-card--summary {
+            grid-column: span 5;
+        }
+
+        .module-card--overview,
+        .module-card--timeline {
+            padding: 1.5rem;
         }
 
         .module-meta {
@@ -346,6 +372,11 @@
             border-radius: 18px;
             box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
             background: #ffffff;
+        }
+
+        .module-card--overview .module-screen--image img,
+        .module-card--timeline .module-screen--image img {
+            border-radius: 20px;
         }
 
         .card-grid {
@@ -453,20 +484,23 @@
         }
 
         .mini-list span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
             color: var(--text);
             font-weight: 600;
+            line-height: 1.6;
         }
 
         .mini-list span::before {
             content: "";
-            width: 0.55rem;
-            height: 0.55rem;
+            width: 0.65rem;
+            height: 0.65rem;
+            margin-top: 0.38rem;
+            flex: 0 0 0.65rem;
             border-radius: 50%;
             background: var(--accent);
-            box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12);
+            box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.12);
         }
 
         .steps-grid {
@@ -572,17 +606,23 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 520px) minmax(320px, 560px);
+                grid-template-columns: minmax(0, 540px) minmax(320px, 560px);
                 gap: 2.25rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.35rem, 4.6vw, 3.6rem);
+                font-size: clamp(2.3rem, 4.4vw, 3.55rem);
+            }
+
+            .module-card--overview,
+            .module-card--timeline,
+            .module-card--transcript,
+            .module-card--summary {
+                grid-column: span 6;
             }
         }
 
         @media (max-width: 980px) {
-            .module-grid,
             .availability-layout,
             .feature-grid,
             .steps-grid {
@@ -611,6 +651,17 @@
                 max-width: 640px;
             }
 
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-card--overview,
+            .module-card--timeline,
+            .module-card--transcript,
+            .module-card--summary {
+                grid-column: auto;
+            }
+
             .availability-list {
                 grid-template-columns: 1fr;
             }
@@ -635,7 +686,7 @@
             .hero h1 {
                 max-width: none;
                 font-size: clamp(2.1rem, 9vw, 2.9rem);
-                line-height: 1.05;
+                line-height: 1.04;
             }
 
             .hero p {
@@ -703,7 +754,12 @@
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <div class="eyebrow">TheraDocs fuer Psychotherapiepraxen</div>
-                    <h1>Dokumentation von Psychotherapiesitzungen - automatisch strukturiert und direkt nutzbar</h1>
+                    <h1>
+                        <span class="hero-title-line">Dokumentation von</span>
+                        <span class="hero-title-line">Psychotherapiesitzungen</span>
+                        <span class="hero-title-line">automatisch strukturiert</span>
+                        <span class="hero-title-line">und direkt nutzbar</span>
+                    </h1>
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, pruefbaren Oberflaeche.</p>
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
@@ -756,7 +812,7 @@
                 </div>
 
                 <div class="module-grid">
-                    <article class="card module-card">
+                    <article class="card module-card module-card--overview">
                         <div class="module-meta">
                             <h3>Patienten- und Sitzungsuebersicht</h3>
                             <p>Patienten, letzte Sitzungen und Status sind strukturiert in einer Oberflaeche organisiert.</p>
@@ -766,7 +822,7 @@
                         </div>
                     </article>
 
-                    <article class="card module-card">
+                    <article class="card module-card module-card--transcript">
                         <div class="module-meta">
                             <h3>Transkript mit Sprechertrennung</h3>
                             <p>Gespraechsverlaeufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
@@ -776,7 +832,7 @@
                         </div>
                     </article>
 
-                    <article class="card module-card">
+                    <article class="card module-card module-card--summary">
                         <div class="module-meta">
                             <h3>Strukturierte Zusammenfassung</h3>
                             <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebuendelt.</p>
@@ -786,7 +842,7 @@
                         </div>
                     </article>
 
-                    <article class="card module-card">
+                    <article class="card module-card module-card--timeline">
                         <div class="module-meta">
                             <h3>Sitzungsverlauf</h3>
                             <p>Wichtige Inhalte und therapeutische Schritte werden chronologisch festgehalten.</p>
