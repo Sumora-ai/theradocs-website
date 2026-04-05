@@ -502,7 +502,6 @@
         .availability-note {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             background:
                 linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 244, 255, 0.98) 100%);
         }
@@ -514,7 +513,7 @@
         .availability-note .mini-list {
             display: grid;
             gap: 0.65rem;
-            margin-top: 0.65rem;
+            margin-top: 0.55rem;
         }
 
         .mini-list span {
@@ -573,6 +572,40 @@
             height: 92px;
             border-radius: 22px;
             box-shadow: 0 16px 30px rgba(37, 99, 235, 0.14);
+        }
+
+        .security-copy p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .security-list {
+            list-style: none;
+            margin: 0.9rem 0 0;
+            padding: 0;
+            display: grid;
+            gap: 0.65rem;
+        }
+
+        .security-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            color: var(--text);
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .security-list li::before {
+            content: "";
+            width: 0.72rem;
+            height: 0.72rem;
+            margin-top: 0.38rem;
+            flex: 0 0 0.72rem;
+            border-radius: 0.3rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.1);
         }
 
         .contact-card {
@@ -966,11 +999,11 @@
                             <h3>Produkt statt Versprechen</h3>
                             <p>TheraDocs führt Sitzungen, Transkripte, Zusammenfassungen und Verlauf in einer Oberfläche zusammen.</p>
                             <p>Die Abläufe sind direkt nachvollziehbar – von der Sitzung bis zur fertigen Dokumentation.</p>
-                        </div>
-                        <div class="mini-list" aria-label="Kernpunkte der Produktdarstellung">
-                            <span>Eine Sitzung öffnen</span>
-                            <span>Ergebnisse strukturiert anzeigen</span>
-                            <span>Dokumentation weiterbearbeiten</span>
+                            <div class="mini-list" aria-label="Kernpunkte der Produktdarstellung">
+                                <span>Eine Sitzung öffnen</span>
+                                <span>Ergebnisse strukturiert anzeigen</span>
+                                <span>Dokumentation weiterbearbeiten</span>
+                            </div>
                         </div>
                     </aside>
                 </div>
@@ -1011,13 +1044,18 @@
             <div class="container">
                 <div class="card security-panel">
                     <img src="security.png" alt="Icon für sensible Daten und sichere Verarbeitung" />
-                    <div>
+                    <div class="security-copy">
                         <div class="eyebrow">Sicherheit</div>
                         <h2 style="margin: 0.9rem 0 0.7rem; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -0.05em;">Für sensible Daten ausgelegt</h2>
-                        <p style="margin: 0; color: var(--muted); line-height: 1.75;">TheraDocs verarbeitet hochsensible Gesprächsdaten und ist auf sichere Verarbeitung und kontrollierten Zugriff ausgelegt.</p>
-                        <p style="margin: 0.9rem 0 0; color: var(--muted); line-height: 1.75;">Die Anwendung erfüllt die Anforderungen der DSGVO und wird auf Servern in Deutschland betrieben. Daten werden verschlüsselt übertragen und gespeichert.</p>
-                        <p style="margin: 0.9rem 0 0; color: var(--muted); line-height: 1.75;">Große Mediendaten wie Sprachaufzeichnungen werden getrennt von strukturierten Patient:innen- und Sitzungsdaten gespeichert und verarbeitet.</p>
-                        <p style="margin: 0.9rem 0 0; color: var(--muted); line-height: 1.75;">Zugriffe sind rollenbasiert geregelt und werden protokolliert. Regelmäßige Backups stellen die Verfügbarkeit der Daten sicher.</p>
+                        <p>TheraDocs verarbeitet hochsensible Gesprächsdaten und ist auf sichere Verarbeitung und kontrollierten Zugriff ausgelegt.</p>
+                        <ul class="security-list" aria-label="Sicherheitsmerkmale von TheraDocs">
+                            <li>DSGVO-konforme Verarbeitung auf Servern in Deutschland</li>
+                            <li>Verschlüsselte Übertragung und Speicherung der Daten</li>
+                            <li>Getrennte Verarbeitung von Audio- und Sitzungsdaten</li>
+                            <li>Rollenbasierte Zugriffssteuerung innerhalb der Anwendung</li>
+                            <li>Protokollierte Zugriffe für nachvollziehbare Freigaben</li>
+                            <li>Regelmäßige Backups zur Sicherung der Verfügbarkeit</li>
+                        </ul>
                     </div>
                 </div>
             </div>
