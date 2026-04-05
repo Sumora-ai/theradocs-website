@@ -142,7 +142,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 720px);
+            grid-template-columns: minmax(0, 860px);
             justify-content: start;
             gap: 0;
             align-items: start;
@@ -150,7 +150,7 @@
 
         .hero-copy {
             width: 100%;
-            max-width: 720px;
+            max-width: 860px;
             min-width: 0;
         }
 
@@ -168,32 +168,15 @@
         }
 
         .hero h1 {
-            margin: 1.1rem 0 1rem;
+            margin: 1.1rem 0 1.1rem;
             font-size: clamp(2.45rem, 4.25vw, 4rem);
-            line-height: 1;
+            line-height: 1.04;
             letter-spacing: -0.06em;
-            max-width: 12.5ch;
+            max-width: 17ch;
+            text-wrap: balance;
         }
 
-        .hero-title-line {
-            display: block;
-        }
-
-        .hero-title-line + .hero-title-line {
-            margin-top: 0.08em;
-        }
-
-        .hero-subheadline {
-            margin: 0 0 1.15rem;
-            max-width: 34ch;
-            color: var(--accent-dark);
-            font-size: clamp(1.18rem, 2vw, 1.58rem);
-            line-height: 1.32;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-
-        .hero p {
+        .hero-description {
             margin: 0;
             max-width: 640px;
             font-size: 1.15rem;
@@ -646,16 +629,12 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 680px);
+                grid-template-columns: minmax(0, 760px);
             }
 
             .hero h1 {
                 font-size: clamp(2.25rem, 4vw, 3.55rem);
-            }
-
-            .hero-subheadline {
-                max-width: 32ch;
-                font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+                max-width: 16ch;
             }
 
             .hero-values-grid {
@@ -685,13 +664,7 @@
             }
 
             .hero-copy {
-                max-width: 640px;
-            }
-
-            .hero-subheadline {
-                max-width: 30ch;
-                font-size: 1.14rem;
-                line-height: 1.38;
+                max-width: 720px;
             }
 
             .hero-values-grid {
@@ -730,18 +703,13 @@
 
             .hero h1 {
                 max-width: none;
-                font-size: clamp(1.85rem, 7.8vw, 2.45rem);
-                line-height: 1.05;
+                font-size: clamp(1.78rem, 7.2vw, 2.3rem);
+                line-height: 1.06;
             }
 
-            .hero p {
+            .hero-description {
                 font-size: 1.02rem;
                 line-height: 1.68;
-            }
-
-            .hero-subheadline {
-                max-width: none;
-                font-size: 1rem;
             }
 
             .hero-actions {
@@ -826,12 +794,8 @@
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <div class="eyebrow">TheraDocs für Psychotherapiepraxen</div>
-                    <h1>
-                        <span class="hero-title-line">Dokumentation von Psychotherapiesitzungen</span>
-                        <span class="hero-title-line">– vom Gespräch zur fertigen Dokumentation</span>
-                    </h1>
-                    <p class="hero-subheadline">Automatisch strukturiert – direkt nutzbar</p>
-                    <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, prüfbaren Oberfläche.</p>
+                    <h1>Dokumentation von Psychotherapiesitzungen</h1>
+                    <p class="hero-description">TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, prüfbaren Oberfläche.</p>
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
                         <a href="#produkt" class="secondary-button">Oberfläche ansehen</a>
