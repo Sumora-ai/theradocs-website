@@ -413,140 +413,207 @@
             font-size: 1.05rem;
         }
 
-        .module-grid {
+        .module-overview {
             display: grid;
-            grid-template-columns: minmax(0, 1.22fr) minmax(340px, 0.88fr);
-            gap: 1.35rem;
-            align-items: start;
+            gap: 1.2rem;
         }
 
-        .module-column {
+        .module-overview-flow {
             display: flex;
-            flex-direction: column;
-            gap: 1.35rem;
+            align-items: center;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            padding: 0.85rem 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(217, 226, 239, 0.95);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.05);
+        }
+
+        .module-overview-flow-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.72rem;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--accent-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .module-overview-flow-track {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .module-overview-flow-step {
+            color: var(--text);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .module-overview-flow-arrow {
+            color: rgba(71, 85, 105, 0.5);
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+
+        .module-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 1.15rem;
+            align-items: stretch;
+        }
+
+        .module-node {
+            grid-column: span 2;
+            padding: 1.35rem;
             min-width: 0;
         }
 
-        .module-column--main {
-            grid-column: 1;
+        .module-node--wide {
+            grid-column: span 3;
         }
 
-        .module-column--side {
-            grid-column: 2;
-        }
-
-        .module-card {
+        .module-node-header {
             display: flex;
-            flex-direction: column;
-            padding: 1rem 1rem 1.05rem;
-            min-width: 0;
-            overflow: hidden;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        .module-card--overview {
-            padding: 1.1rem 1.1rem 1.15rem;
+        .module-node-icon {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            flex: 0 0 46px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 10px 24px rgba(15, 23, 42, 0.05);
+            color: var(--accent-dark);
         }
 
-        .module-card--timeline {
-            padding: 1rem 1.1rem 1.05rem;
+        .module-node-icon::before,
+        .module-node-icon::after {
+            content: "";
+            position: absolute;
+            display: block;
         }
 
-        .module-meta {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 0.8rem;
+        .module-node-icon--patients::before {
+            left: 13px;
+            top: 12px;
+            width: 18px;
+            height: 3px;
+            border-radius: 999px;
+            background: currentColor;
+            box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
         }
 
-        .module-copy {
-            min-width: 0;
+        .module-node-icon--patients::after {
+            left: 9px;
+            top: 11px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.28);
+            box-shadow: 0 8px 0 rgba(37, 99, 235, 0.28), 0 16px 0 rgba(37, 99, 235, 0.28);
         }
 
-        .module-meta h3 {
-            margin: 0 0 0.35rem;
-            font-size: 1.18rem;
+        .module-node-icon--transcript::before {
+            left: 10px;
+            top: 10px;
+            width: 10px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(37, 99, 235, 0.18);
+        }
+
+        .module-node-icon--transcript::after {
+            right: 10px;
+            top: 11px;
+            width: 14px;
+            height: 3px;
+            border-radius: 999px;
+            background: currentColor;
+            box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
+        }
+
+        .module-node-icon--analysis::before {
+            left: 11px;
+            top: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 3px solid currentColor;
+        }
+
+        .module-node-icon--analysis::after {
+            left: 18px;
+            top: 18px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 10px 10px 0 -1px rgba(37, 99, 235, 0.26);
+        }
+
+        .module-node-icon--summary::before {
+            left: 11px;
+            top: 11px;
+            width: 24px;
+            height: 10px;
+            border-radius: 6px;
+            background: rgba(37, 99, 235, 0.18);
+        }
+
+        .module-node-icon--summary::after {
+            left: 11px;
+            top: 26px;
+            width: 24px;
+            height: 3px;
+            border-radius: 999px;
+            background: currentColor;
+            box-shadow: 0 7px 0 rgba(37, 99, 235, 0.45);
+        }
+
+        .module-node-icon--timeline::before {
+            left: 15px;
+            top: 9px;
+            width: 4px;
+            height: 28px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.18);
+        }
+
+        .module-node-icon--timeline::after {
+            left: 11px;
+            top: 11px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 0 14px 0 rgba(37, 99, 235, 0.58);
+        }
+
+        .module-node h3 {
+            margin: 0;
+            font-size: 1.12rem;
             letter-spacing: -0.03em;
         }
 
-        .module-meta p {
+        .module-node p {
             margin: 0;
             color: var(--muted);
-            line-height: 1.55;
+            line-height: 1.65;
             font-size: 0.98rem;
-        }
-
-        .module-screen {
-            width: 100%;
-            min-width: 0;
-            position: relative;
-            border-radius: 24px;
-            border: 1px solid #dfe8f4;
-            background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
-            padding: 0.38rem;
-            overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
-        }
-
-        .module-screen--image {
-            display: block;
-            width: 100%;
-            min-width: 0;
-            padding: 0;
-            line-height: 0;
-        }
-
-        .module-screen--image img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            position: static;
-            transform: none;
-            margin: 0;
-            border-radius: 16px;
-            box-shadow: 0 18px 38px rgba(15, 23, 42, 0.10);
-            background: #ffffff;
-        }
-
-        .module-card--overview .module-screen,
-        .module-card--timeline .module-screen {
-            padding: 0.32rem;
-        }
-
-        .module-card--overview .module-meta {
-            margin-bottom: 1.45rem;
-        }
-
-        .module-card--overview .module-meta p {
-            max-width: 46ch;
-        }
-
-        .module-card--overview .module-screen {
-            margin-top: 0.25rem;
-            padding: 0.42rem;
-        }
-
-        .module-step {
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 2.35rem;
-            height: 2.35rem;
-            padding: 0 0.7rem;
-            border-radius: 999px;
-            background: rgba(37, 99, 235, 0.10);
-            color: var(--accent-dark);
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.10);
-        }
-
-        .module-card--overview .module-screen--image img,
-        .module-card--timeline .module-screen--image img {
-            border-radius: 20px;
         }
 
         .card-grid {
@@ -761,8 +828,13 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .module-grid {
-                grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+            .module-overview-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .module-node,
+            .module-node--wide {
+                grid-column: span 1;
             }
 
             .hero-visual-stage {
@@ -839,13 +911,13 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .module-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1.2rem;
+            .module-overview-flow {
+                border-radius: 24px;
             }
 
-            .module-column {
-                gap: 1.2rem;
+            .module-overview-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1rem;
             }
 
         }
@@ -948,40 +1020,28 @@
                 grid-template-columns: 1fr;
             }
 
-            .module-grid {
+            .module-overview-flow {
+                padding: 0.9rem 1rem;
+                border-radius: 22px;
+            }
+
+            .module-overview-flow-track {
+                gap: 0.42rem;
+            }
+
+            .module-overview-grid {
                 grid-template-columns: 1fr;
             }
 
-            .module-column {
-                display: contents;
+            .module-node,
+            .module-node--wide {
+                grid-column: span 1;
+                padding: 1.15rem;
             }
 
-            .module-card,
-            .module-card--overview,
-            .module-card--timeline {
-                padding: 1rem;
-            }
-
-            .module-card--overview { order: 1; }
-            .module-card--transcript { order: 2; }
-            .module-card--summary { order: 3; }
-            .module-card--timeline { order: 4; }
-
-            .module-screen {
-                padding: 0.32rem;
-            }
-
-            .module-meta {
-                flex-direction: column;
+            .module-node-header {
                 gap: 0.8rem;
-            }
-
-            .module-card--overview .module-meta {
-                margin-bottom: 1.05rem;
-            }
-
-            .module-card--overview .module-screen {
-                margin-top: 0.15rem;
+                margin-bottom: 0.85rem;
             }
 
             .security-panel {
@@ -1086,63 +1146,64 @@
                 <div class="section-header" style="margin-bottom: 2.8rem;">
                     <div class="eyebrow">Produktmodule</div>
                     <h2>Die wichtigsten Funktionen im Überblick</h2>
-                    <p>Die wichtigsten Funktionen greifen in einem klaren Ablauf ineinander: von der Patientenübersicht bis zum Sitzungsverlauf.</p>
+                    <p>Die Module zeigen, wie Patientenverwaltung, Transkript, Analyse und Dokumentation in TheraDocs zusammenarbeiten.</p>
                 </div>
 
-                <div class="module-grid">
-                    <div class="module-column module-column--main">
-                        <article class="card module-card module-card--overview">
-                            <div class="module-meta">
-                                <div class="module-copy">
-                                    <h3>Patienten- und Sitzungsübersicht</h3>
-                                    <p>Die wichtigsten Patientendaten sind kompakt und übersichtlich dargestellt.</p>
-                                </div>
-                                <span class="module-step">1</span>
-                            </div>
-                            <div class="module-screen module-screen--image">
-                                <img src="patientenliste.png" alt="Patientenliste in TheraDocs mit Sitzungen und Status" />
-                            </div>
-                        </article>
-
-                        <article class="card module-card module-card--summary">
-                            <div class="module-meta">
-                                <div class="module-copy">
-                                    <h3>Strukturierte Zusammenfassung</h3>
-                                    <p>Die wichtigsten Inhalte der Sitzung sind kompakt und übersichtlich zusammengefasst.</p>
-                                </div>
-                                <span class="module-step">3</span>
-                            </div>
-                            <div class="module-screen module-screen--image">
-                                <img src="zusammenfassung.png" alt="Strukturierte Zusammenfassung in TheraDocs" />
-                            </div>
-                        </article>
+                <div class="module-overview">
+                    <div class="module-overview-flow" aria-label="Ablauf der Produktmodule">
+                        <span class="module-overview-flow-label">Ablauf</span>
+                        <div class="module-overview-flow-track">
+                            <span class="module-overview-flow-step">Patienten &amp; Sitzungen</span>
+                            <span class="module-overview-flow-arrow" aria-hidden="true">→</span>
+                            <span class="module-overview-flow-step">Transkript</span>
+                            <span class="module-overview-flow-arrow" aria-hidden="true">→</span>
+                            <span class="module-overview-flow-step">Analyse</span>
+                            <span class="module-overview-flow-arrow" aria-hidden="true">→</span>
+                            <span class="module-overview-flow-step">Zusammenfassung</span>
+                            <span class="module-overview-flow-arrow" aria-hidden="true">→</span>
+                            <span class="module-overview-flow-step">Weiterverarbeitung</span>
+                        </div>
                     </div>
 
-                    <div class="module-column module-column--side">
-                        <article class="card module-card module-card--transcript">
-                            <div class="module-meta">
-                                <div class="module-copy">
-                                    <h3>Transkript mit Sprechertrennung</h3>
-                                    <p>Gesprächsverläufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
-                                </div>
-                                <span class="module-step">2</span>
+                    <div class="module-overview-grid">
+                        <article class="card module-node">
+                            <div class="module-node-header">
+                                <span class="module-node-icon module-node-icon--patients" aria-hidden="true"></span>
+                                <h3>Patienten &amp; Sitzungen</h3>
                             </div>
-                            <div class="module-screen module-screen--image">
-                                <img src="transcript.png" alt="Transkript in TheraDocs mit Sprechertrennung zwischen Therapeutin und Patientin" />
-                            </div>
+                            <p>Verwalten Sie Patient:innen, Sitzungen und letzte Aktivitäten zentral an einem Ort.</p>
                         </article>
 
-                        <article class="card module-card module-card--timeline">
-                            <div class="module-meta">
-                                <div class="module-copy">
-                                    <h3>Sitzungsverlauf</h3>
-                                    <p>Wichtige Inhalte und therapeutische Schritte werden chronologisch festgehalten.</p>
-                                </div>
-                                <span class="module-step">4</span>
+                        <article class="card module-node">
+                            <div class="module-node-header">
+                                <span class="module-node-icon module-node-icon--transcript" aria-hidden="true"></span>
+                                <h3>Transkript</h3>
                             </div>
-                            <div class="module-screen module-screen--image">
-                                <img src="sitzungsverlauf.png" alt="Chronologischer Sitzungsverlauf in TheraDocs" />
+                            <p>Gespräche werden automatisch transkribiert und Sprecherrollen klar zugeordnet.</p>
+                        </article>
+
+                        <article class="card module-node">
+                            <div class="module-node-header">
+                                <span class="module-node-icon module-node-icon--analysis" aria-hidden="true"></span>
+                                <h3>Analyse</h3>
                             </div>
+                            <p>TheraDocs erkennt klinisch relevante Inhalte und strukturiert sie für die weitere Dokumentation.</p>
+                        </article>
+
+                        <article class="card module-node module-node--wide">
+                            <div class="module-node-header">
+                                <span class="module-node-icon module-node-icon--summary" aria-hidden="true"></span>
+                                <h3>Strukturierte Zusammenfassung</h3>
+                            </div>
+                            <p>Wesentliche Inhalte der Sitzung werden kompakt und manuell editierbar dargestellt. Zusätzlich erstellt TheraDocs automatisiert strukturierte Analysen, z. B. SORC-Schemata oder Einschätzungen zur Suizidalität.</p>
+                        </article>
+
+                        <article class="card module-node module-node--wide">
+                            <div class="module-node-header">
+                                <span class="module-node-icon module-node-icon--timeline" aria-hidden="true"></span>
+                                <h3>Sitzungsverlauf &amp; Weiterverarbeitung</h3>
+                            </div>
+                            <p>Sitzungszusammenfassungen werden chronologisch archiviert und sind über die Suche jederzeit abrufbar. So entsteht eine feingranulare Verlaufsanalyse über die gesamte Therapie hinweg und bildet die Grundlage für weiterführende Dokumente wie Therapieanträge.</p>
                         </article>
                     </div>
                 </div>
