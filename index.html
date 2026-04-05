@@ -172,7 +172,7 @@
             font-size: clamp(2.45rem, 4.25vw, 4rem);
             line-height: 1;
             letter-spacing: -0.06em;
-            max-width: 14ch;
+            max-width: 12.5ch;
         }
 
         .hero-title-line {
@@ -181,6 +181,16 @@
 
         .hero-title-line + .hero-title-line {
             margin-top: 0.08em;
+        }
+
+        .hero-subheadline {
+            margin: 0 0 1.15rem;
+            max-width: 34ch;
+            color: var(--accent-dark);
+            font-size: clamp(1.1rem, 1.8vw, 1.38rem);
+            line-height: 1.35;
+            font-weight: 700;
+            letter-spacing: -0.03em;
         }
 
         .hero p {
@@ -290,20 +300,23 @@
 
         .module-card--overview {
             grid-column: 1;
-            grid-row: span 2;
+            grid-row: 1;
             padding: 1.1rem 1.1rem 1.15rem;
         }
 
         .module-card--transcript {
             grid-column: 2;
+            grid-row: 1;
         }
 
         .module-card--summary {
-            grid-column: 2;
+            grid-column: 1;
+            grid-row: 2;
         }
 
         .module-card--timeline {
-            grid-column: 1 / -1;
+            grid-column: 2;
+            grid-row: 2;
             padding: 1rem 1.1rem 1.05rem;
         }
 
@@ -614,23 +627,37 @@
                 font-size: clamp(2.25rem, 4vw, 3.55rem);
             }
 
+            .hero-subheadline {
+                max-width: 32ch;
+                font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+            }
+
             .hero-values-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .module-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
             }
 
-            .module-card--overview,
-            .module-card--timeline {
-                grid-column: 1 / -1;
-                grid-row: auto;
+            .module-card--overview {
+                grid-column: 1;
+                grid-row: 1;
             }
 
-            .module-card--transcript,
+            .module-card--transcript {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
             .module-card--summary {
-                grid-column: auto;
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .module-card--timeline {
+                grid-column: 2;
+                grid-row: 2;
             }
         }
 
@@ -653,6 +680,12 @@
 
             .hero-copy {
                 max-width: 640px;
+            }
+
+            .hero-subheadline {
+                max-width: 30ch;
+                font-size: 1.08rem;
+                line-height: 1.38;
             }
 
             .hero-values-grid {
@@ -705,6 +738,11 @@
             .hero p {
                 font-size: 1.02rem;
                 line-height: 1.68;
+            }
+
+            .hero-subheadline {
+                max-width: none;
+                font-size: 1rem;
             }
 
             .hero-actions {
@@ -771,7 +809,6 @@
             </a>
             <nav>
                 <a href="#produkt">Produkt</a>
-                <a href="#verfuegbar">Bereits verfügbar</a>
                 <a href="#ablauf">So funktioniert es</a>
                 <a href="#contact">Kontakt</a>
                 <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
@@ -786,8 +823,8 @@
                     <div class="eyebrow">TheraDocs für Psychotherapiepraxen</div>
                     <h1>
                         <span class="hero-title-line">Dokumentation von Psychotherapiesitzungen</span>
-                        <span class="hero-title-line">Automatisch strukturiert – direkt nutzbar</span>
                     </h1>
+                    <p class="hero-subheadline">Automatisch strukturiert – direkt nutzbar</p>
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, prüfbaren Oberfläche.</p>
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
