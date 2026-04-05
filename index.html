@@ -211,14 +211,13 @@
             position: relative;
             width: 100%;
             max-width: 1040px;
-            min-height: clamp(430px, 54vw, 640px);
+            min-height: clamp(480px, 54vw, 650px);
             margin: 0 auto;
-            padding: clamp(1.1rem, 2.4vw, 1.8rem);
+            padding: clamp(1.2rem, 2.5vw, 1.9rem);
             border-radius: 36px;
-            border: 1px solid rgba(217, 226, 239, 0.92);
             background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(241, 246, 255, 0.94) 100%);
-            box-shadow: 0 26px 70px rgba(15, 23, 42, 0.09);
+                linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(243, 247, 255, 0.96) 100%);
+            box-shadow: inset 0 0 0 1px rgba(217, 226, 239, 0.92), 0 26px 70px rgba(15, 23, 42, 0.09);
             overflow: hidden;
             isolation: isolate;
         }
@@ -232,10 +231,64 @@
             pointer-events: none;
         }
 
+        .hero-visual-flow {
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            width: min(78%, 800px);
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(71, 85, 105, 0.42);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-visual-flow::before {
+            content: "";
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 50%;
+            height: 1px;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, rgba(148, 163, 184, 0.12) 0%, rgba(148, 163, 184, 0.4) 50%, rgba(148, 163, 184, 0.12) 100%);
+        }
+
+        .hero-visual-flow span {
+            position: relative;
+            z-index: 1;
+            padding: 0 0.4rem;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
         .hero-visual-item {
             position: absolute;
             margin: 0;
-            padding: 0.5rem;
+            width: 100%;
+        }
+
+        .hero-visual-label {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0 0.6rem 0.75rem;
+            padding: 0.42rem 0.78rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(217, 226, 239, 0.96);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+            color: var(--accent-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-visual-frame {
+            padding: 0.48rem;
             border-radius: 28px;
             border: 1px solid rgba(217, 226, 239, 0.95);
             background: rgba(255, 255, 255, 0.96);
@@ -251,30 +304,38 @@
         }
 
         .hero-visual-main {
-            top: clamp(1rem, 2.2vw, 1.5rem);
+            top: clamp(0.45rem, 3vw, 1.6rem);
             left: 50%;
-            width: min(69%, 720px);
+            width: min(69%, 760px);
             transform: translateX(-50%);
-            z-index: 1;
-            box-shadow: 0 24px 58px rgba(15, 23, 42, 0.14);
+            z-index: 2;
         }
 
-        .hero-visual-patients {
-            left: clamp(0.8rem, 2vw, 1.5rem);
-            bottom: clamp(1.2rem, 3vw, 2rem);
-            width: min(47%, 500px);
-            z-index: 2;
-            opacity: 0.98;
-            box-shadow: 0 22px 48px rgba(15, 23, 42, 0.1);
+        .hero-visual-main .hero-visual-frame {
+            box-shadow: 0 28px 68px rgba(15, 23, 42, 0.14);
         }
 
         .hero-visual-transcript {
-            right: clamp(0.8rem, 2vw, 1.5rem);
-            bottom: clamp(3rem, 7vw, 5rem);
-            width: min(41%, 430px);
+            left: clamp(1rem, 2.4vw, 1.7rem);
+            bottom: clamp(2.8rem, 5.2vw, 3.9rem);
+            width: min(37%, 410px);
+            z-index: 4;
+            opacity: 0.9;
+            filter: saturate(0.94);
+        }
+
+        .hero-visual-transcript .hero-visual-frame,
+        .hero-visual-patients .hero-visual-frame {
+            box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-visual-patients {
+            right: clamp(1rem, 2.4vw, 1.7rem);
+            bottom: clamp(1.9rem, 3.8vw, 2.8rem);
+            width: min(39%, 430px);
             z-index: 3;
-            opacity: 0.97;
-            box-shadow: 0 22px 48px rgba(15, 23, 42, 0.11);
+            opacity: 0.9;
+            filter: saturate(0.94);
         }
 
         .hero-values {
@@ -705,20 +766,19 @@
             }
 
             .hero-visual-stage {
-                min-height: clamp(390px, 56vw, 560px);
+                min-height: clamp(430px, 56vw, 580px);
             }
 
             .hero-visual-main {
-                width: min(70%, 650px);
-            }
-
-            .hero-visual-patients {
-                width: min(44%, 430px);
+                width: min(70%, 700px);
             }
 
             .hero-visual-transcript {
-                width: min(38%, 360px);
-                bottom: clamp(2.2rem, 6vw, 4rem);
+                width: min(35%, 370px);
+            }
+
+            .hero-visual-patients {
+                width: min(37%, 390px);
             }
         }
 
@@ -749,24 +809,30 @@
             }
 
             .hero-visual-stage {
-                min-height: clamp(340px, 58vw, 470px);
-                padding: 1rem;
+                min-height: clamp(375px, 63vw, 495px);
+                padding: 0.95rem;
             }
 
             .hero-visual-main {
-                width: min(72%, 560px);
+                width: min(73%, 590px);
+                top: clamp(0.7rem, 3.2vw, 1.45rem);
             }
 
-            .hero-visual-patients {
-                left: 0.8rem;
-                bottom: 0.9rem;
-                width: min(43%, 340px);
+            .hero-visual-flow {
+                top: 52%;
+                width: min(80%, 620px);
             }
 
             .hero-visual-transcript {
-                right: 0.8rem;
-                bottom: 2.5rem;
-                width: min(37%, 290px);
+                left: 0.75rem;
+                bottom: 1.9rem;
+                width: min(39%, 270px);
+            }
+
+            .hero-visual-patients {
+                right: 0.75rem;
+                bottom: 1.2rem;
+                width: min(41%, 290px);
             }
 
             .hero-values-grid {
@@ -827,13 +893,32 @@
             }
 
             .hero-visual-stage {
+                display: grid;
+                gap: 0.95rem;
                 min-height: auto;
-                padding: 0.55rem;
+                padding: 0.7rem;
                 border-radius: 24px;
+            }
+
+            .hero-visual-flow {
+                display: none;
             }
 
             .hero-visual-item {
                 position: relative;
+                inset: auto;
+                width: 100%;
+                transform: none;
+                opacity: 1;
+                filter: none;
+            }
+
+            .hero-visual-label {
+                margin: 0 0 0.55rem 0.25rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-visual-frame {
                 padding: 0.4rem;
                 border-radius: 20px;
             }
@@ -843,17 +928,16 @@
             }
 
             .hero-visual-main {
-                top: auto;
-                left: auto;
                 width: 100%;
-                transform: none;
-                z-index: auto;
-                box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+                order: 2;
             }
 
-            .hero-visual-patients,
             .hero-visual-transcript {
-                display: none;
+                order: 1;
+            }
+
+            .hero-visual-patients {
+                order: 3;
             }
 
             .hero-values {
@@ -942,14 +1026,27 @@
                     </div>
                     <div class="hero-visual">
                         <div class="hero-visual-stage">
-                            <figure class="hero-visual-item hero-visual-patients">
-                                <img src="patientenliste_1.png" alt="Patientenliste in TheraDocs mit Übersicht über Fälle und Sitzungen" />
-                            </figure>
+                            <div class="hero-visual-flow" aria-hidden="true">
+                                <span>→</span>
+                                <span>→</span>
+                            </div>
                             <figure class="hero-visual-item hero-visual-transcript">
-                                <img src="transcript_1.png" alt="Transkriptansicht in TheraDocs mit Gesprächsverlauf" />
+                                <figcaption class="hero-visual-label">Transkript</figcaption>
+                                <div class="hero-visual-frame">
+                                    <img src="transcript_1.png" alt="Transkriptansicht in TheraDocs mit Gesprächsverlauf" />
+                                </div>
                             </figure>
                             <figure class="hero-visual-item hero-visual-main">
-                                <img src="sitzung_1.png" alt="Sitzungsansicht in TheraDocs mit strukturierter Zusammenfassung" />
+                                <figcaption class="hero-visual-label">Strukturierte Dokumentation</figcaption>
+                                <div class="hero-visual-frame">
+                                    <img src="sitzung_1.png" alt="Sitzungsansicht in TheraDocs mit strukturierter Zusammenfassung" />
+                                </div>
+                            </figure>
+                            <figure class="hero-visual-item hero-visual-patients">
+                                <figcaption class="hero-visual-label">Patienten &amp; Sitzungen</figcaption>
+                                <div class="hero-visual-frame">
+                                    <img src="patientenliste_1.png" alt="Patientenliste in TheraDocs mit Übersicht über Fälle und Sitzungen" />
+                                </div>
                             </figure>
                         </div>
                     </div>
