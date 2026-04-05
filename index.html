@@ -290,6 +290,21 @@
             align-items: start;
         }
 
+        .module-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.35rem;
+            min-width: 0;
+        }
+
+        .module-column--main {
+            grid-column: 1;
+        }
+
+        .module-column--side {
+            grid-column: 2;
+        }
+
         .module-card {
             display: flex;
             flex-direction: column;
@@ -299,24 +314,10 @@
         }
 
         .module-card--overview {
-            grid-column: 1;
-            grid-row: 1;
             padding: 1.1rem 1.1rem 1.15rem;
         }
 
-        .module-card--transcript {
-            grid-column: 2;
-            grid-row: 1;
-        }
-
-        .module-card--summary {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
         .module-card--timeline {
-            grid-column: 2;
-            grid-row: 2;
             padding: 1rem 1.1rem 1.05rem;
         }
 
@@ -664,26 +665,6 @@
             .module-grid {
                 grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
             }
-
-            .module-card--overview {
-                grid-column: 1;
-                grid-row: 1;
-            }
-
-            .module-card--transcript {
-                grid-column: 2;
-                grid-row: 1;
-            }
-
-            .module-card--summary {
-                grid-column: 1;
-                grid-row: 2;
-            }
-
-            .module-card--timeline {
-                grid-column: 2;
-                grid-row: 2;
-            }
         }
 
         @media (max-width: 980px) {
@@ -722,15 +703,8 @@
                 gap: 1.2rem;
             }
 
-            .module-card--overview,
-            .module-card--timeline {
-                grid-column: 1 / -1;
-                grid-row: auto;
-            }
-
-            .module-card--transcript,
-            .module-card--summary {
-                grid-column: auto;
+            .module-column {
+                gap: 1.2rem;
             }
 
             .availability-list {
@@ -756,8 +730,8 @@
 
             .hero h1 {
                 max-width: none;
-                font-size: clamp(2.1rem, 9vw, 2.9rem);
-                line-height: 1.04;
+                font-size: clamp(1.85rem, 7.8vw, 2.45rem);
+                line-height: 1.05;
             }
 
             .hero p {
@@ -787,19 +761,20 @@
                 grid-template-columns: 1fr;
             }
 
+            .module-column {
+                display: contents;
+            }
+
             .module-card,
             .module-card--overview,
             .module-card--timeline {
                 padding: 1rem;
             }
 
-            .module-card--overview,
-            .module-card--timeline,
-            .module-card--transcript,
-            .module-card--summary {
-                grid-column: auto;
-                grid-row: auto;
-            }
+            .module-card--overview { order: 1; }
+            .module-card--transcript { order: 2; }
+            .module-card--summary { order: 3; }
+            .module-card--timeline { order: 4; }
 
             .module-screen {
                 padding: 0.32rem;
@@ -853,6 +828,7 @@
                     <div class="eyebrow">TheraDocs für Psychotherapiepraxen</div>
                     <h1>
                         <span class="hero-title-line">Dokumentation von Psychotherapiesitzungen</span>
+                        <span class="hero-title-line">– vom Gespräch zur fertigen Dokumentation</span>
                     </h1>
                     <p class="hero-subheadline">Automatisch strukturiert – direkt nutzbar</p>
                     <p>TheraDocs transkribiert Sitzungen, erkennt Sprecherrollen und erstellt strukturierte Dokumentation in einer klaren, prüfbaren Oberfläche.</p>
@@ -900,57 +876,61 @@
                 </div>
 
                 <div class="module-grid">
-                    <article class="card module-card module-card--overview">
-                        <div class="module-meta">
-                            <div class="module-copy">
-                                <h3>Patienten- und Sitzungsübersicht</h3>
-                                <p>Patienten, letzte Sitzungen und Status sind direkt in einer gemeinsamen Ansicht organisiert.</p>
+                    <div class="module-column module-column--main">
+                        <article class="card module-card module-card--overview">
+                            <div class="module-meta">
+                                <div class="module-copy">
+                                    <h3>Patienten- und Sitzungsübersicht</h3>
+                                    <p>Patienten, letzte Sitzungen und Status sind direkt in einer gemeinsamen Ansicht organisiert.</p>
+                                </div>
+                                <span class="module-step">1</span>
                             </div>
-                            <span class="module-step">1</span>
-                        </div>
-                        <div class="module-screen module-screen--image">
-                            <img src="patientenliste.png" alt="Patientenliste in TheraDocs mit Sitzungen und Status" />
-                        </div>
-                    </article>
+                            <div class="module-screen module-screen--image">
+                                <img src="patientenliste.png" alt="Patientenliste in TheraDocs mit Sitzungen und Status" />
+                            </div>
+                        </article>
 
-                    <article class="card module-card module-card--transcript">
-                        <div class="module-meta">
-                            <div class="module-copy">
-                                <h3>Transkript mit Sprechertrennung</h3>
-                                <p>Gesprächsverläufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
+                        <article class="card module-card module-card--summary">
+                            <div class="module-meta">
+                                <div class="module-copy">
+                                    <h3>Strukturierte Zusammenfassung</h3>
+                                    <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebündelt.</p>
+                                </div>
+                                <span class="module-step">3</span>
                             </div>
-                            <span class="module-step">2</span>
-                        </div>
-                        <div class="module-screen module-screen--image">
-                            <img src="transcript.png" alt="Transkript in TheraDocs mit Sprechertrennung zwischen Therapeutin und Patientin" />
-                        </div>
-                    </article>
+                            <div class="module-screen module-screen--image">
+                                <img src="zusammenfassung.png" alt="Strukturierte Zusammenfassung in TheraDocs" />
+                            </div>
+                        </article>
+                    </div>
 
-                    <article class="card module-card module-card--summary">
-                        <div class="module-meta">
-                            <div class="module-copy">
-                                <h3>Strukturierte Zusammenfassung</h3>
-                                <p>Relevante Inhalte der Sitzung werden in einer direkt nutzbaren Dokumentationsansicht gebündelt.</p>
+                    <div class="module-column module-column--side">
+                        <article class="card module-card module-card--transcript">
+                            <div class="module-meta">
+                                <div class="module-copy">
+                                    <h3>Transkript mit Sprechertrennung</h3>
+                                    <p>Gesprächsverläufe werden klar zwischen Therapeut:in und Patient:in zugeordnet.</p>
+                                </div>
+                                <span class="module-step">2</span>
                             </div>
-                            <span class="module-step">3</span>
-                        </div>
-                        <div class="module-screen module-screen--image">
-                            <img src="zusammenfassung.png" alt="Strukturierte Zusammenfassung in TheraDocs" />
-                        </div>
-                    </article>
+                            <div class="module-screen module-screen--image">
+                                <img src="transcript.png" alt="Transkript in TheraDocs mit Sprechertrennung zwischen Therapeutin und Patientin" />
+                            </div>
+                        </article>
 
-                    <article class="card module-card module-card--timeline">
-                        <div class="module-meta">
-                            <div class="module-copy">
-                                <h3>Sitzungsverlauf</h3>
-                                <p>Wichtige Inhalte und therapeutische Schritte werden chronologisch festgehalten.</p>
+                        <article class="card module-card module-card--timeline">
+                            <div class="module-meta">
+                                <div class="module-copy">
+                                    <h3>Sitzungsverlauf</h3>
+                                    <p>Wichtige Inhalte und therapeutische Schritte werden chronologisch festgehalten.</p>
+                                </div>
+                                <span class="module-step">4</span>
                             </div>
-                            <span class="module-step">4</span>
-                        </div>
-                        <div class="module-screen module-screen--image">
-                            <img src="sitzungsverlauf.png" alt="Chronologischer Sitzungsverlauf in TheraDocs" />
-                        </div>
-                    </article>
+                            <div class="module-screen module-screen--image">
+                                <img src="sitzungsverlauf.png" alt="Chronologischer Sitzungsverlauf in TheraDocs" />
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
