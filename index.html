@@ -142,7 +142,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 860px);
+            grid-template-columns: minmax(0, 1080px);
             justify-content: start;
             gap: 0;
             align-items: start;
@@ -150,7 +150,7 @@
 
         .hero-copy {
             width: 100%;
-            max-width: 860px;
+            max-width: 1080px;
             min-width: 0;
         }
 
@@ -200,6 +200,81 @@
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 2rem;
+        }
+
+        .hero-visual {
+            width: 100%;
+            margin-top: 2.35rem;
+        }
+
+        .hero-visual-stage {
+            position: relative;
+            width: 100%;
+            max-width: 1040px;
+            min-height: clamp(430px, 54vw, 640px);
+            margin: 0 auto;
+            padding: clamp(1.1rem, 2.4vw, 1.8rem);
+            border-radius: 36px;
+            border: 1px solid rgba(217, 226, 239, 0.92);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(241, 246, 255, 0.94) 100%);
+            box-shadow: 0 26px 70px rgba(15, 23, 42, 0.09);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero-visual-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 48%);
+            pointer-events: none;
+        }
+
+        .hero-visual-item {
+            position: absolute;
+            margin: 0;
+            padding: 0.5rem;
+            border-radius: 28px;
+            border: 1px solid rgba(217, 226, 239, 0.95);
+            background: rgba(255, 255, 255, 0.96);
+            overflow: hidden;
+        }
+
+        .hero-visual-item img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 22px;
+        }
+
+        .hero-visual-main {
+            top: clamp(1rem, 2.2vw, 1.5rem);
+            left: 50%;
+            width: min(69%, 720px);
+            transform: translateX(-50%);
+            z-index: 3;
+            box-shadow: 0 28px 68px rgba(15, 23, 42, 0.16);
+        }
+
+        .hero-visual-patients {
+            left: clamp(0.8rem, 2vw, 1.5rem);
+            bottom: clamp(1.2rem, 3vw, 2rem);
+            width: min(47%, 500px);
+            z-index: 1;
+            opacity: 0.95;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-visual-transcript {
+            right: clamp(0.8rem, 2vw, 1.5rem);
+            bottom: clamp(3rem, 7vw, 5rem);
+            width: min(41%, 430px);
+            z-index: 2;
+            opacity: 0.94;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09);
         }
 
         .hero-values {
@@ -603,7 +678,11 @@
 
         @media (max-width: 1100px) {
             .hero-grid {
-                grid-template-columns: minmax(0, 760px);
+                grid-template-columns: minmax(0, 100%);
+            }
+
+            .hero-copy {
+                max-width: 100%;
             }
 
             .hero h1 {
@@ -624,6 +703,23 @@
             .module-grid {
                 grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
             }
+
+            .hero-visual-stage {
+                min-height: clamp(390px, 56vw, 560px);
+            }
+
+            .hero-visual-main {
+                width: min(70%, 650px);
+            }
+
+            .hero-visual-patients {
+                width: min(44%, 430px);
+            }
+
+            .hero-visual-transcript {
+                width: min(38%, 360px);
+                bottom: clamp(2.2rem, 6vw, 4rem);
+            }
         }
 
         @media (max-width: 980px) {
@@ -643,13 +739,34 @@
             }
 
             .hero-copy {
-                max-width: 720px;
+                max-width: 100%;
             }
 
             .hero-subline {
                 max-width: min(100%, 36ch);
                 font-size: 1.12rem;
                 line-height: 1.2;
+            }
+
+            .hero-visual-stage {
+                min-height: clamp(340px, 58vw, 470px);
+                padding: 1rem;
+            }
+
+            .hero-visual-main {
+                width: min(72%, 560px);
+            }
+
+            .hero-visual-patients {
+                left: 0.8rem;
+                bottom: 0.9rem;
+                width: min(43%, 340px);
+            }
+
+            .hero-visual-transcript {
+                right: 0.8rem;
+                bottom: 2.5rem;
+                width: min(37%, 290px);
             }
 
             .hero-values-grid {
@@ -703,6 +820,40 @@
             .hero-actions {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .hero-visual {
+                margin-top: 1.85rem;
+            }
+
+            .hero-visual-stage {
+                min-height: auto;
+                padding: 0.55rem;
+                border-radius: 24px;
+            }
+
+            .hero-visual-item {
+                position: relative;
+                padding: 0.4rem;
+                border-radius: 20px;
+            }
+
+            .hero-visual-item img {
+                border-radius: 16px;
+            }
+
+            .hero-visual-main {
+                top: auto;
+                left: auto;
+                width: 100%;
+                transform: none;
+                z-index: auto;
+                box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+            }
+
+            .hero-visual-patients,
+            .hero-visual-transcript {
+                display: none;
             }
 
             .hero-values {
@@ -788,6 +939,19 @@
                     <div class="hero-actions">
                         <a href="mailto:info@theradocs.com?subject=Testzugang%20anfragen" class="cta-button">Testzugang anfragen</a>
                         <a href="#produkt" class="secondary-button">So funktioniert TheraDocs</a>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-visual-stage">
+                            <figure class="hero-visual-item hero-visual-patients">
+                                <img src="patientenliste_1.png" alt="Patientenliste in TheraDocs mit Übersicht über Fälle und Sitzungen" />
+                            </figure>
+                            <figure class="hero-visual-item hero-visual-transcript">
+                                <img src="transcript_1.png" alt="Transkriptansicht in TheraDocs mit Gesprächsverlauf" />
+                            </figure>
+                            <figure class="hero-visual-item hero-visual-main">
+                                <img src="sitzung_1.png" alt="Sitzungsansicht in TheraDocs mit strukturierter Zusammenfassung" />
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
